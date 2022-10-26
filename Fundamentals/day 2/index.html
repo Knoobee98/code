@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // console.log("testing");
+        // alert("hello world!");
+        // let input = prompt("masukkan data:");
+        // console.log(input);
+
+        //menampilkan informasi pembayaran
+        let totalBelanja = 150000;
+        alert(`Total belanja anda adalah Rp.${totalBelanja.toLocaleString()}`);
+        //input uang user
+        let uang = prompt("masukkan uang anda:");
+        let kembalian = uang - totalBelanja;
+        //informasi input user kurang atau tidak
+        if(uang < totalBelanja){
+            alert("uang anda kurang!")
+        } else {
+            alert(`transaksi sukses, kembalian anda adalah Rp.${kembalian.toLocaleString()}`);
+        }
+    </script>
+</body>
+</html>
