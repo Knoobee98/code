@@ -1,22 +1,59 @@
 //celcius to fahrenheit
-let cel = 30;
+//step 1: define variable
+let cel = 0;
+//step 2: hitung menggunakan rumus
 let fah = cel * 9/5 + 32; //celcius to fahrenheit formula
+//step 3: tampilkan hasil
 console.log(`${cel} celcius = ${fah} fahrenheit`);
 
 //check odd or even number 
+//bilangan genap : bilangan yang habis dibagi 2
+//bilangan % 2 === 0 (bilangan genap)
+//bilangan % 2 === 1 (bilangan ganjil)
+
+//step 1: define variable
 let num = 10;
+//step 2: hitung menggunakan rumus
 if(num % 2 == 0){
-    console.log("number is even");
+    console.log(`${num} is even`);
 } else {
-    console.log("number is odd");
+    console.log(`${num} is odd`);
 }
 
 //check prime number
-let num1 = 12;
-if(num1 % 2 != 0){
-    console.log("number is prime");
+//bilangan prima : bilangan yang hanya habis dibagi 1 dan bilangan itu sendiri
+//v1
+let num1 = 10;
+if(num1 % 2 != 0){ //check if number is prime or not
+    console.log(`${num1} is prime`);
 } else {
-    console.log("number is not prime");
+    console.log(`${num1} is not prime`);
+}
+
+//v2
+let number = 17;
+let primeNumber = 0;
+for(let i = 1; i <= number; i++){ //1<=5? true ---> 2<=5? true ---> 3<=5? true ---> 4<=5? true ---> 5<=5? true ---> 6<=5? false
+    if(number % i === 0){ //5 % 1 == 0? true ---> 5 % 2 == 0? false ---> 5 % 3 == 0? false ---> 5 % 4 == 0? false ---> 5 % 5 == 0? true
+        primeNumber++; //primeNumber = 1 --> primeNumber = 1, 5
+    }
+}
+
+if(primeNumber === 2){
+    console.log(`${number} is prime`);
+} else {
+    console.log(`${number} is not prime`);
+}
+
+//v3
+for(let i = 2; i <= number; i++){
+    if(number % i === 0){
+        console.log(`${number} is not prime`);
+        break;
+    }
+    if(i === number-1){
+        console.log(`${number} is prime`);
+    }
 }
 
 //sum of n number
