@@ -22,6 +22,7 @@
         //informasi input user kurang atau tidak
         if(uang < totalBelanja){
             alert("uang anda kurang!");
+            location.reload(); //untuk refresh page
         } else {
             alert(`transaksi sukses, kembalian anda adalah Rp.${kembalian.toLocaleString()}`);
         }
