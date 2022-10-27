@@ -86,3 +86,11 @@ for(let i = 2; i < num3; i++){
     fibo[i] = fibo[i-1] + fibo[i-2];
 }
 console.log(fibo);
+
+let fibo2 = "001";
+let input = 5;
+
+for(let i = 3; i < input; i++){
+    fibo2 += Number(fibo2[i-1]) + Number(fibo2[i-2]);
+}
+console.log(fibo2);
