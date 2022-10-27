@@ -44,8 +44,9 @@ let totalHari = 400;
 let tahun1 = (totalHari / tahun).toPrecision(1); //dibulatkan ke 1 angka dibelakang koma
 let bulan1 = ((totalHari % tahun) / bulan).toPrecision(1); //dibulatkan ke 1 angka dibelakang koma
 let hari1 = ((totalHari % tahun) % bulan) / hari;
-// Math.floor(tahun1); //dibulatkan 
-// Math.floor(bulan1);
-// Math.floor(hari1);
 console.log(`${totalHari} hari = ${tahun1} tahun, ${bulan1} bulan, ${hari1} hari`);
 
+let tahun2 = Math.floor(totalHari / tahun);
+let bulan2 = Math.floor((totalHari % tahun) / bulan);
+let hari2 = Math.floor(((totalHari % tahun) % bulan) / hari);
+console.log(`${totalHari} hari = ${tahun2} tahun, ${bulan2} bulan, ${hari2} hari`);
