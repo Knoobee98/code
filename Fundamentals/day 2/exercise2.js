@@ -70,7 +70,7 @@ for(let i = 1; i <= num2; i++){
 console.log(`factorial of ${num2} is ${fact}`);
 
 //print first n fibonacci number
-let num3 = 6;
+let num3 = 5;
 let n1 = 0;
 let n2 = 1;
 let nextTerm;
@@ -81,6 +81,8 @@ for(let i = 1; i <= num3; i++){ // loop over fibonacci numbers
     n2 = nextTerm; // update n2
 }
 
-let result = "011";
-let num4 = 3;
-let i = 3
+let fibo = [0, 1];
+for(let i = 2; i < num3; i++){
+    fibo[i] = fibo[i-1] + fibo[i-2];
+}
+console.log(fibo);
