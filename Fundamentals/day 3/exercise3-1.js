@@ -32,3 +32,18 @@ for(let i = 0; i < jawaban.length; i++){
     }
 }
 console.log(`poin anda adalah ${poin}`);
+
+//tabel perkalian
+let number = 5;
+for(i = 1; i <= 10; i++){
+    console.log(`${number} x ${i} = ${number*i}`);
+}
+
+//tugas
+//buatlah sebuah program untuk menghitung jumlah huruf vokal pada suatu kata
+//Ex. Input --> "purwadhika"
+//   Output --> 4
+
+//ex. Input --> "Hello"
+//   Output --> 2
+//clue: sama dengan mencocokka kunci jawaban
