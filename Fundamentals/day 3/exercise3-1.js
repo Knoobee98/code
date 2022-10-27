@@ -47,3 +47,6 @@ for(i = 1; i <= 10; i++){
 //ex. Input --> "Hello"
 //   Output --> 2
 //clue: sama dengan mencocokka kunci jawaban
+
+let words = "purwadhika";
+let count = 0;
