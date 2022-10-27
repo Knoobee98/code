@@ -87,7 +87,7 @@ for(let i = 2; i < num3; i++){
 }
 console.log(fibo);
 
-let fibo2 = "001";
+let fibo2 = "011";
 let input = 5;
 
 for(let i = 3; i < input; i++){
