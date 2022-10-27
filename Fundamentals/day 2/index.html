@@ -13,8 +13,10 @@
             //menampilkan informasi pembayaran
             var totalBelanja = 150000;
             alert(`Total belanja anda adalah Rp.${totalBelanja.toLocaleString()}`);
-            //input uang user
-            var uang = prompt("masukkan uang anda:");
+            //validasi input user
+            do{
+                var uang = prompt("masukkan uang anda:");
+            } while (isNaN(uang));
             var kembalian = uang - totalBelanja;
             //informasi input user kurang atau tidak
             if(uang < totalBelanja){
