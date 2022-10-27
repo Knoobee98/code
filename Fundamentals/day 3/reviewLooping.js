@@ -10,8 +10,19 @@
 //     bebas++;
 // }
 
-let start = 1;
-while(start <= 10){
+let start = 0;
+while(start < 10){
     console.log("pizza");
     start++;
+}
+
+let i = 15;
+let ec = 30;
+while(i <= ec){
+    console.log(i);
+    i++;
+}
+
+for(let i = 1; i <=3; i++){
+    console.log("pizza");
 }
