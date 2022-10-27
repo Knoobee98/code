@@ -8,24 +8,23 @@
 </head>
 <body>
     <script>
-        // console.log("testing");
-        // alert("hello world!");
-        // let input = prompt("masukkan data:");
-        // console.log(input);
-
-        //menampilkan informasi pembayaran
-        let totalBelanja = 150000;
-        alert(`Total belanja anda adalah Rp.${totalBelanja.toLocaleString()}`);
-        //input uang user
-        let uang = prompt("masukkan uang anda:");
-        let kembalian = uang - totalBelanja;
-        //informasi input user kurang atau tidak
-        if(uang < totalBelanja){
+        
+        do{
+            //menampilkan informasi pembayaran
+            var totalBelanja = 150000;
+            alert(`Total belanja anda adalah Rp.${totalBelanja.toLocaleString()}`);
+            //input uang user
+            var uang = prompt("masukkan uang anda:");
+            var kembalian = uang - totalBelanja;
+            //informasi input user kurang atau tidak
+            if(uang < totalBelanja){
             alert("uang anda kurang!");
-            location.reload(); //untuk refresh page
+            // location.reload(); //untuk refresh page
         } else {
             alert(`transaksi sukses, kembalian anda adalah Rp.${kembalian.toLocaleString()}`);
-        }
+            }
+        } while(uang < totalBelanja);
+
     </script>
 </body>
 </html>
