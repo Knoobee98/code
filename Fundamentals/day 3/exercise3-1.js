@@ -48,5 +48,23 @@ for(i = 1; i <= 10; i++){
 //   Output --> 2
 //clue: sama dengan mencocokka kunci jawaban
 
-let words = "purwadhika";
+let words = "makassar";
 let count = 0;
+words.toLowerCase(); //mengubah semua huruf menjadi huruf kecil
+
+for(let i = 0; i < words.length; i++){
+    if(words[i] === "a"){
+        count++;
+    } else if(words[i] === "i"){
+        count++;
+    } else if(words[i] === "u"){
+        count++;
+    } else if(words[i] === "e"){
+        count++;
+    } else if(words[i] === "o"){
+        count++;
+    } else {
+        count += 0;
+    }
+}
+console.log(`jumlah huruf vokal pada kata ${words} adalah ${count}`);
