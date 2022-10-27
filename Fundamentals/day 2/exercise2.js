@@ -80,3 +80,7 @@ for(let i = 1; i <= num3; i++){ // loop over fibonacci numbers
     n1 = n2; // update n1
     n2 = nextTerm; // update n2
 }
+
+let result = "011";
+let num4 = 3;
+let i = 3
