@@ -58,7 +58,7 @@ ShowProgram("Stephen", 20, "Makan");
 //function yamg menjalankan sesuatu
 
 function validation(phoneNumber){
-    if(phoneNumber.toString().length > 13){
+    if(phoneNumber.toString().length < 8 || phoneNumber.toString().length > 13){
         return false;
     } 
     
