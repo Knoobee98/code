@@ -48,7 +48,7 @@ console.log(`poin anda adalah ${poin}`);
 //   Output --> 2
 //clue: sama dengan mencocokka kunci jawaban
 
-let words = "makassar";
+let words = "purwadhika";
 let count = 0;
 words.toLowerCase(); //mengubah semua huruf menjadi huruf kecil
 
@@ -68,3 +68,9 @@ for(let i = 0; i < words.length; i++){
     }
 }
 console.log(`jumlah huruf vokal pada kata ${words} adalah ${count}`);
+
+// for(let i = 0; i < words.length; i++){
+//     if(words[i] === "a" || words[i] === "i" || words[i] === "u" || words[i] === "e" || words[i] === "o"){
+//         count++;
+//     }
+// }
