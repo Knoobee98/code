@@ -8,15 +8,22 @@
 </head>
 <body>
     <script>
-        let products = ["Apel", "Mangga", "Jeruk", "manggis"]
-        let prices = [10000, 15000, 20000, 35000];
-        let display = "Mart Abadi \n";
-        for(let i = 0; i < products.length; i++){
-            display += `${products[i]} = Rp.${prices[i].toLocaleString()} \n`;
-            console.log(`${products[i]} = ${prices[i]}`);
+        let products = ["Apel", "Mangga", "Jeruk"];
+        let prices = [10000, 15000, 20000];
+        let stock = [10, 15, 20];
+        let display = "Purwadhika Mart \n";
+        for(let i = 0; i <= products.length-1; i++){
+            display += `${[i+1]}. ${products[i]} | Price Rp.${prices[i].toLocaleString()} | Stocks ${stock[i]} \n`;
+            
         }
-        alert(display);
-        
+        //input product code by number
+        let input = parseInt(prompt(display));
+        //check if poduct code is valid
+        if(input > 0 && input <= products.length){
+            alert("Transaksi berhasil"); //return "transaksi berhasil"
+        }else{
+            alert("Transaksi Gagal"); 
+        }
     </script>
 </body>
 </html>
