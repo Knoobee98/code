@@ -13,17 +13,27 @@
         let stock = [10, 15, 20];
         let display = "Purwadhika Mart \n";
         for(let i = 0; i <= products.length-1; i++){
-            display += `${[i+1]}. ${products[i]} | Price Rp.${prices[i].toLocaleString()} | Stocks ${stock[i]} \n`;
-            
+            display += `${[i+1]}. ${products[i]} | Price Rp.${prices[i].toLocaleString()} | Stocks ${stock[i]} \n`;    
         }
-        //input product code by number
-        let input = parseInt(prompt(display));
-        //check if poduct code is valid
-        if(input > 0 && input <= products.length){
+        // //input product code by number
+        // let input = parseInt(prompt(display + "\n" + "mau buah apa hari ini?"));
+        // //check if poduct code is valid
+        // if(input > 0 && input <= products.length){
+        //     alert("Transaksi berhasil"); //return "transaksi berhasil"
+        // }else{
+        //     alert("Transaksi Gagal"); 
+        // }
+        do{
+            //input product code by number
+            let input = parseInt(prompt(display + "\n" + "mau buah apa hari ini?"));
+            //check if poduct code is valid
+            if(input > 0 && input <= products.length){
             alert("Transaksi berhasil"); //return "transaksi berhasil"
-        }else{
-            alert("Transaksi Gagal"); 
+            }else{
+                alert("Transaksi Gagal"); 
+            }
         }
+        while(input > 0 && input <= products.length)
     </script>
 </body>
 </html>
