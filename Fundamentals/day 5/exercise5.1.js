@@ -65,8 +65,8 @@ function oddArray(arr){
 
 MaksMinAvrg([1, 3, 5, 10, 2]);
 MaksMinAvrg([5, 10, 20, -1]);
-Words(["Hello", "World", "in", "a", "frame"]);
-wordToArr("Hello World in a frame");
+Words(["Hai", "Purwadhika", "ini", "adalah", "bot"]);
+wordToArr("selamat datang di purwadhika");
 penjumlahanArray([1, 0, 2, 4], [3, 5, 6, 7]);
 addElements(1, 2, 3, 4);
 addElements("test", 5, 6, 7);

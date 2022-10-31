@@ -1,15 +1,14 @@
 
-function HighestToLowest(arr){
-    // let arr = [];
-    let max = Math.max(...arr);
-    console.log(max);
-    let min = Math.min(...arr);
-    console.log(min);
-    let sum = arr.reduce((a, b) => a + b, 0);
-    // console.log(sum);
-    let avg = sum / arr.length;
-    console.log(avg.toPrecision(2));
-    
+let angka1 = 20;
+let angka2 = 10;
+
+function tambah(num1, num2){
+    var result;
+    if(num1 !== num2){
+        result = num1 + num2;
+        console.log(result);
+    } else {
+        console.log("angka tidak boleh sama");
+    }
 }
-HighestToLowest([3, 2, 1]);
-HighestToLowest([5, 4, 1, 3, 6]);
+ tambah(10, 15);
