@@ -26,6 +26,15 @@ let triangle = (num) => {
 }
 triangle(5);
 
+// let height = 5;
+// for(let i = 1; i <= height; i++){
+//     let str = " ";
+//     for(let j = 1; j <= i; j++){
+//         str += "* ";
+//     }
+//     console.log(str);
+// }
+
 //#5
 //string to array
 let StrToArr = (str) => {
