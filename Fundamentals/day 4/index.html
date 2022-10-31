@@ -25,15 +25,15 @@
         // }
         do{
             //input product code by number
-            let input = parseInt(prompt(display + "\n" + "mau buah apa hari ini?"));
+            var input = parseInt(prompt(display + "\n" + "mau buah apa hari ini?"));
             //check if poduct code is valid
             if(input > 0 && input <= products.length){
             alert("Transaksi berhasil"); //return "transaksi berhasil"
             } else {
                 alert("Transaksi Gagal"); 
-            }
+                }
         }
-        while(input > 0 && input <= products.length)
+        while(input < 1 || input > products.length)
     </script>
 </body>
 </html>
