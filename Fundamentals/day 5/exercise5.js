@@ -39,26 +39,37 @@ triangle(5);
 //string to array
 let StrToArr = (str) => {
     let arr = str.split(" ");
-    console.log(arr);
+    console.log(arr.join(", "));
 }
-StrToArr("hello world");
+StrToArr("Apel Pisang Jeruk Leci Kelengkeng Dukuh");
 
 //#2
-let FizzBuzz = (num) => {
-    for(let i = 1; i <= num; i++){
-        if(i % 3 === 0 && i % 5 === 0){
-            console.log("FizzBuzz");
-        } else if(i % 3 === 0){ //bilangan kelipatan 3
-            console.log("Fizz");
-        } else if(i % 5 === 0){ //bilangan kelipatan 5
-            console.log("Buzz");
-        } else {
-            console.log(i);
+// let FizzBuzz = (n) => {
+//     for(let i = 1; i <= n; i++){
+//         if(i % 3 === 0 && i % 5 === 0){
+//             console.log("FizzBuzz");
+//         } else if(i % 3 === 0){ //bilangan kelipatan 3
+//             console.log("Fizz");
+//         } else if(i % 5 === 0){ //bilangan kelipatan 5
+//             console.log("Buzz");
+//         } else {
+//             console.log(i);
+//         }
+//     }
+// }
+let jumlahKelipatan = (n) => {
+    var total = 0;
+    for(let i = 1; i <= n; i++){
+        if(i % 3 === 0){
+            total += i;
+        } else if(i % 5 === 0) {
+            total += i;
         }
     }
+    console.log(`total : ${total}`);
 }
-FizzBuzz(15);
-
+// FizzBuzz(15);
+jumlahKelipatan(16);
 //#4
 let OddtoEven = (arr) => {
     let odd = [];
@@ -70,7 +81,7 @@ let OddtoEven = (arr) => {
             odd.push(arr[i]);
         }
     }
-    console.log('even : ' + even);
+    console.log(`even : ${even.join(", ")}`);
 
 }
 OddtoEven([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
