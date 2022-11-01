@@ -19,3 +19,14 @@ let [a, b, c] = [...arrData]; //let [a, b, c] = Variable let a, let b, let c
 console.log(a);
 console.log(b);
 console.log(c);
+
+//static properties --> properties yang tidak perlu diinisialisasi
+//static method --> method yang tidak perlu diinisialisasi
+class StaticPropertiesNew{
+    static name = "Tito";
+    static Hello(){
+        console.log("Hello");
+    }
+}
+console.log(StaticPropertiesNew.name);
+StaticPropertiesNew.Hello();
