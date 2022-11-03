@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //step 1
+        let tarifParkir1 = 10000;
+        let tarifParkir2 = 1500;
+        //step 2
+        let jamMasuk = parseInt(prompt("masukkan jam masuk:"));
+        let waktuMasuk = parseInt(prompt("masukkan waktu: \n 1.AM \n 2.PM \n "));
+        let jamKeluar = parseInt(prompt("masukkan jam keluar:"));
+        let waktuKeluar = parseInt(prompt("masukkan waktu: \n 1.AM \n 2.PM \n "));
+        //step 3
+        if(waktuMasuk === waktuKeluar) {
+            totalWaktu = jamKeluar - jamMasuk;
+        } else if(waktuMasuk !== waktuKeluar) {
+            totalWaktu = (12 - jamKeluar) + jamMasuk;
+        }
+        //step 4
+        if(totalWaktu <= 2) {
+            totalBayar = tarifParkir1;
+        } else if(totalWaktu > 2) {
+            totalBayar = tarifParkir1 + (tarifParkir2 * (totalWaktu - 2));
+        }
+        //step 5
+        alert(`total jam: ${totalWaktu} jam -- bayar: Rp.${(totalBayar).toLocaleString()}`);
+    </script>
+</body>
+</html>
