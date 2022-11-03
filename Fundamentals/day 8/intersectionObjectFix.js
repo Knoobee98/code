@@ -6,7 +6,7 @@ obj2 = {
     a: 1,
     c: 5,
 }
-function compare(){
+function compare(obj1, obj2){
     let arr1 = [];
     let arrVal1 = [];
 
@@ -34,4 +34,15 @@ function compare(){
     }
     return objectNew;
 }
-console.log(compare());
+let obj3 = {
+    a: 1,
+    b: 5,
+    c: 2,
+}
+let obj4 = {
+    c: 2,
+    b: 5,
+    a: 1,
+}
+
+console.log(compare(obj3,obj4));
