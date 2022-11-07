@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarketPro</title>
+</head>
+<body>
+    <script>
+        
+        
+            //define data ---> [{id, name, price, stock}]
+        let product = [ { id: 1, name: "Apple", price: 10000, stock: 10 },
+                        { id: 2, name: "Orange", price: 15000, stock: 20 },
+                        { id: 3, name: "Banana", price: 20000, stock: 30 }, ];
+        //show data ---> ditampilkan dengan prompt untuk input produk
+        let showData = '';
+
+        product.forEach((value, index) => {
+            showData += `${value.id}. ${value.name} - Rp.${value.price.toLocaleString()} (stock: ${value.stock}) \n`;
+        });
+
+        //insert to cart
+        var cart = [];
+
+        do{
+            var selectedProduct = parseInt(prompt(showData))-1;
+            //prompt untuk input qty
+            let qty = parseInt(prompt("input quantity: "));
+            if(qty < 0){
+                qty = 0
+            } else {
+                qty = qty;
+            };
+            
+            //add to cart
+            if(cart.length === 0){
+
+                //breakdown data produk supaya stock tidk ikut ke push di array cart
+                let cartToPush = {
+                    id: product[selectedProduct].id, //1
+                    name: product[selectedProduct].name, //apel 
+                    price: product[selectedProduct].price, //10000
+                    qty: qty //3
+                };
+                cart.push(cartToPush);
+            } else {
+                let getId = product[selectedProduct].id; //id dari product yang dipilih user ---> id apel = 1
+
+                cart.forEach(value => {
+                    if(value.id === getId){
+                        var total = value.qty + qty;
+                        if(total > product[selectedProduct].stock){
+                            alert("stock tidak mencukupi");
+                        } else {
+                            value.qty += qty;
+                        }
+                    }
+                });
+            };
+            //conditional: 1. checkout or 2. select product again
+            var menu = parseInt(prompt(`1. Checkout \n2. select product again`));
+        } while(menu === 2);
+    </script>
+</body>
+</html>
