@@ -14,63 +14,78 @@
     {id: 3, name: "mangga", price: 20000, stock: 20},
     ] 
     let cart = [];
-let total = 0;
-let display = "Purwadhika Mart \n";
-//tampilan menu
-for(let i = 0; i < products.length; i++){
-    display += `${i+1}. ${products[i].name} ${products[i].price} (${products[i].stock}) \n`;
-}
-    //input nomor barang
-let input = prompt(display + "masukkan nomor barang yang ingin dibeli:");
+    let total = 0;
+    let display = "Purwadhika Mart \n";
+    //tampilan menu
+    for(let i = 0; i < products.length; i++){
+        display += `${i+1}. ${products[i].name} ${products[i].price} (${products[i].stock}) \n`;
+    }
+        //input nomor barang
+    let input = prompt(display + "masukkan nomor barang yang ingin dibeli:");
 
-//input jumlah barang
-let quantity = prompt("masukkan jumlah barang yang ingin dibeli:");
-let index = input - 1;
-let product = products[index];
-let subtotal = product.price * quantity;
-let stock = product.stock - quantity;
-do{
-    //pembelian barang
-if(input > 0 && input <= products.length){
-    if(quantity <= product.stock){
-        alert("Transaksi Berhasil");
-        cart.push({product, quantity, subtotal});
-        total += subtotal;
-        product.stock = stock;
-        //tampilkan cart
-        let cartDisplay = "Keranjang Belanja \n";
-        for(let i = 0; i < cart.length; i++){
-            cartDisplay += `${i+1}. ${cart[i].product.name} ${cart[i].quantity} x ${cart[i].subtotal.toLocaleString()} \n`;
-        }
-        cartDisplay += `Total: ${total.toLocaleString()}`;
-        alert(cartDisplay);
-        //if user mau beli lagi, kembali ke menu. jika tidak, masuk ke pembayaran
-        let lagi = confirm("Mau Beli Lagi?");
-        if(lagi){
-            input = prompt(display + "masukkan nomor barang yang ingin dibeli:");
-            quantity = prompt("masukkan jumlah barang yang ingin dibeli:");
-            index = input - 1;
-            product = products[index];
-            subtotal = product.price * quantity;
-            stock = product.stock - quantity;
+    //input jumlah barang
+    let quantity = prompt("masukkan jumlah barang yang ingin dibeli:");
+    let index = input - 1;
+    let product = products[index];
+    let subtotal = product.price * quantity;
+    let stock = product.stock - quantity;
+    do{
+        //pembelian barang
+    if(input > 0 && input <= products.length){
+        if(quantity <= product.stock){
+            alert("Transaksi Berhasil");
+            cart.push({product, quantity, subtotal});
+            total += subtotal;
+            product.stock = stock;
+            //tampilkan cart
+            let cartDisplay = "Keranjang Belanja \n";
+            for(let i = 0; i < cart.length; i++){
+                cartDisplay += `${i+1}. ${cart[i].product.name} ${cart[i].quantity} x ${cart[i].subtotal.toLocaleString()} \n`;
+            }
+            cartDisplay += `Total: ${total.toLocaleString()}`;
+            alert(cartDisplay);
+            //if user mau beli lagi, kembali ke menu. jika tidak, masuk ke pembayaran
+            let lagi = confirm("Mau Beli Lagi?");
+            if(lagi){
+                input = prompt(display + "masukkan nomor barang yang ingin dibeli:");
+                quantity = prompt("masukkan jumlah barang yang ingin dibeli:");
+                index = input - 1;
+                product = products[index];
+                subtotal = product.price * quantity;
+                stock = product.stock - quantity;
+            }else{
+                //pembayaran
+                let bayar = prompt("Total Belanja: " + total.toLocaleString() + "\n" + "Masukkan Jumlah Uang:");
+                let kembalian = bayar - total;
+                alert("Kembalian: " + kembalian.toLocaleString());
+                alert("Terima Kasih");
+                break;
+            }
         }else{
-            //pembayaran
-            let bayar = prompt("Total Belanja: " + total.toLocaleString() + "\n" + "Masukkan Jumlah Uang:");
-            let kembalian = bayar - total;
-            alert("Kembalian: " + kembalian.toLocaleString());
-            alert("Terima Kasih");
-            break;
+            alert("Barang yang anda pilih tidak tersedia");
         }
     }else{
         alert("Barang yang anda pilih tidak tersedia");
     }
-}else{
-    alert("Barang yang anda pilih tidak tersedia");
-}
-} while( input > 0 && input <= products.length);
+    } while( input > 0 && input <= products.length);
 
 
-
+    //pseudocode
+    //buat array objek untuk produk
+    //buat array untuk keranjang belanja
+    //buat variabel untuk total belanja
+    //buat variabel untuk tampung menu
+    //tampilkan menu untuk setiap array objek produk dan input nomor produk
+    //tampilkan jumlah produk yang ingin dibeli dan input jumlah produk
+    //buat variabel untuk menunjukkan keranjang belanja
+    //tampilkan keranjang belanja dan total belanja
+    //tampilkan prompt untuk memilih apakah mau beli lagi atau tidak
+    //if user ingin beli lagi, then kembali ke menu awal
+    //if user tidak ingin beli lagi, then masuk ke menu pembayaran
+    //tampilkan menu pembayaran
+    //input jumlah uang
+    //if uang kurang, then tampilkan pesan transaksi gagal dan uang kurang
+    //if uang pas atau lebih, then tampilkan pesan transaksi berhasil dan kembalian
 
 
     //flow
