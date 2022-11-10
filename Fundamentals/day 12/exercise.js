@@ -8,7 +8,7 @@
 //  - apabila status: 200 dan isError: true, throw messagenya 
 //  {status: 200, isError: true, message: "username already exist", isData: false, data: {}}
 //  - apabila status: 500 dan isError: true, tampilkan error messagenya di catch
-//  {status: 500, isError: true, message: "login success", isData: false, data: {}}
+//  {status: 200, isError: true, message: "login success", isData: false, data: {}}
 
 function EmailCheck(email, cb){
     email = email.toString();
@@ -42,10 +42,8 @@ let promise1 = new Promise((resolve, reject) => {
 
     if(response.status === 200 && response.isError === false){
         resolve(response);
-    } else if(response.status === 200 && response.isError === true){
-        reject(response);
     } else {
-        reject(response);
+        reject(response)
     }
 });
 
@@ -59,10 +57,8 @@ let promise2 = new Promise((resolve, reject) => {
     };
 
 
-    if(response.status === 200 && response.isError === false){
+    if(response.status === 200 && response.isError === true){
         resolve(response);
-    } else if(response.status === 200 && response.isError === true){
-        reject(response);
     } else {
         reject(response);
     }
@@ -71,8 +67,8 @@ let promise2 = new Promise((resolve, reject) => {
 
 let promise3 = new Promise((resolve, reject) => {
     let response = {
-        status: 500, 
-        isError: false, 
+        status: 200, 
+        isError: true, 
         message: "login success", 
         isData: false, 
         data: {username: "ryan", isverified: false}
@@ -80,7 +76,7 @@ let promise3 = new Promise((resolve, reject) => {
 
     if(response.status === 200 && response.isError === false){
         resolve(response);
-    } else if(response.status === 200 && response.isError === true){
+    } else if(response.status === 500 && response.isError === true){
         reject(response);
     } else {
         reject(response);
@@ -95,18 +91,23 @@ promise1
     console.log(err);
 });
 
-promise2
-.then((res) => {
-    throw response.message;
-})
-.catch((err) => {
-    console.log(err);
-});
+const tryAndCatch = async() => {
+    try{
+        let result = await promise2;
+        
+        if(result.status === 200 && result.isError === true){
+            throw result.message;
+        }
+    } catch(error){
+        console.log(error);
+    }
+}
+tryAndCatch();
 
 promise3
 .then((res) => {
     console.log(res);
-})
+}) 
 .catch((err) => {
-    console.log(response.message);
+    console.log("error: " + err.message);
 });
