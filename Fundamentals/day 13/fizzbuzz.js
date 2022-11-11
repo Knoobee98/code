@@ -24,4 +24,10 @@ function JumlahDeret(n) {
     return jumlahDeret
 }
 
-module.exports = {BuzzFizz, JumlahDeret};
+function split(str){
+    let result = [];
+    result = str.split(" ");
+    return result;
+}
+// console.log(split("hello world"));
+module.exports = {BuzzFizz, JumlahDeret, split};
