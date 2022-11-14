@@ -35,16 +35,30 @@ let promise1 = new Promise((resolve, reject) => {
     let response = {
         status: 200, 
         isError: false, 
-        message: "login success", 
+        message: "login success!", 
         isData: true, 
         data: {username: "ryan", isverified: false}
     };
 
     if(response.status === 200 && response.isError === false){
         resolve(response);
+    } else if(response.status === 200 && response.isError === true){
+        resolve(response);
     } else {
-        reject(response)
+        reject(response.message);
     }
+});
+
+promise1
+.then((res) => {
+    if(res.status === 200 && res.isError === true){
+        console.log(res.data);
+    } else {
+        throw res.message;
+    }
+})
+.catch((err) => {
+    console.log(err);
 });
 
 let promise2 = new Promise((resolve, reject) => {
@@ -65,32 +79,6 @@ let promise2 = new Promise((resolve, reject) => {
 
 });
 
-let promise3 = new Promise((resolve, reject) => {
-    let response = {
-        status: 200, 
-        isError: true, 
-        message: "login failed", 
-        isData: false, 
-        data: {username: "ryan", isverified: false}
-    };
-
-    if(response.status === 200 && response.isError === false){
-        resolve(response);
-    } else if(response.status === 500 && response.isError === true){
-        reject(response);
-    } else {
-        reject(response);
-    }
-});
-
-promise1
-.then((res) => {
-    console.log(res);
-})
-.catch((err) => {
-    console.log(err);
-});
-
 const tryAndCatch = async() => {
     try{
         let result = await promise2;
@@ -104,10 +92,29 @@ const tryAndCatch = async() => {
 }
 tryAndCatch();
 
-promise3
-.then((res) => {
-    console.log(res);
-}) 
-.catch((err) => {
-    console.log("error: " + err.message);
-});
+
+// let promise3 = new Promise((resolve, reject) => {
+//     let response = {
+//         status: 200, 
+//         isError: true, 
+//         message: "login failed", 
+//         isData: false, 
+//         data: {username: "ryan", isverified: false}
+//     };
+
+//     if(response.status === 200 && response.isError === false){
+//         resolve(response);
+//     } else if(response.status === 500 && response.isError === true){
+//         reject(response);
+//     } else {
+//         reject(response);
+//     }
+// });
+
+// promise3
+// .then((res) => {
+//     console.log(res);
+// }) 
+// .catch((err) => {
+//     console.log("error: " + err.message);
+// });

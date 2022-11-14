@@ -9,7 +9,8 @@ function validation(email, cb){
 function result(emailFromValidation){
     return emailFromValidation;
 }
-console.log(validation("fdhuha@gmail.com"));
+
+console.log(validation("fdhuha@gmail.com", result));
 
 let Validation = (email, cb) => {
     email = email.toString();
@@ -24,6 +25,6 @@ let Validation = (email, cb) => {
 //     return emailFromValidation.toString();
 // }
 
-validation("fdhuha@gmail.com", result = (emailFromValidation) => {
+validation("fdhuha@gmail.com", (emailFromValidation) => {
     return emailFromValidation;
 });
