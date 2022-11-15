@@ -33,19 +33,20 @@ function Bmi(berat, tinggi){
 
 //buzz fizz
 function BuzzFizz(n){
+    let result = [];
     for(let i=1; i<=n; i++){
         if(i % 3 === 0 && i % 5 === 0){
-            console.log("BuzzFizz");
+            result.push("FizzBuzz");
         } else if(i % 3 === 0){
-            console.log("Buzz");
+            result.push("Fizz");
         } else if(i % 5 === 0){
-            console.log("Fizz");
+            result.push("Buzz");
         } else {
-            console.log(i);
+            result.push(i);
         }
     }
+    return result;
 }
 
-BuzzFizz(30);
-Bmi(68, 175);
+module.exports = {Bmi, BuzzFizz};
 
