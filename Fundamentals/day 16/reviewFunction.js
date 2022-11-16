@@ -47,3 +47,7 @@ let penjumlahan2 = (a, b, cb) => {
 console.log(penjumlahan2(5,10,(data) => {
     return data;
 }));
+
+let arr = [1,2,3,4,5,6,7,8,9,10];
+arr.splice(0, 1, 25);
+console.log(arr);
