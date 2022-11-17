@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./unitlength.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        em: by default size nya akan dikalikan 16px
+        - akan mencari ukuran em dari parentnya dan akan 
+        berhenti mencari ketika menemukan px dari parentnya.
+        - kalau tidak menemukan px dari parentnya, maka akan 
+        dikalikan dengan 16px.
+     -->
+    <div class="fitst-div">
+        <div class="second-div">
+            <div class="third-div">
+                <h1 class="first-heading">
+                    purwadhika
+                </h1>
+            </div>
+        </div>
+    </div>
+    <!-- 
+        rem: by default size nya akan dikalikan 16px
+        - akan mencari ukuran rem dari root html dan akan 
+        berhenti mencari ketika menemukan px dari root html.
+        - kalau tidak menemukan px dari root html, maka akan 
+        dikalikan dengan 16px.
+     -->
+    <div class="div-pertama">
+        <div class="div-kedua">
+            <h1 class="heading-pertama">
+                Hello world!
+                <h2 class="heading-kedua">
+                    hai!
+                </h2>
+            </h1>
+        </div>
+    </div>
+</body>
+</html>

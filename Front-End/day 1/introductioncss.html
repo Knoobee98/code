@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./external.css">
+    <title>Introduction CSS</title>
+    <style>
+        h2{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <!-- inline style -->
+    <h1 style="color: red">
+        red light
+    </h1>
+
+    <!-- internal css -->
+    <h2>yellow light</h2>
+
+    <!-- external css -->
+    <h3>green light</h3>
+
+    <p id="content-1" class="class-content-1">Purwadhika Digital School</p>
+
+    <h4 id="content-2">BSD</h4>
+    <h4 id="content-2">JKT</h4>
+    <h4 id="content-2">BTM</h4>
+
+    <!-- specifity -->
+    <!-- 
+        specifity point
+        !important > inline style > id > class > tag
+        10000      > 1000         > 100 > 10  > 1
+     -->
+    <h1 id="spec-2" class="class-spec-2">specifity</h1>
+
+    <h1 id="spec-3" style="color: green">specifity 2</h1>
+
+    <div class="mainContent">
+        <h1>specifity-new</h1>
+        <div class="secondContent">
+            <h1 id="spec-3">
+                specifity-3
+            </h1>
+        </div>
+    </div>
+
+    <a href="./link.html">klik link</a>
+
+    <!-- background color -->
+    <div  class="bg-first">
+        <h1>Hello world</h1>
+    </div>
+
+    <!-- font & text -->
+    <p>lorem ipsum dolor sit amet, consectetur adipisicing</p>
+
+    <!-- width & height -->
+    <div class="width-height">
+        <h1>width & height</h1>
+</body>
+</html>

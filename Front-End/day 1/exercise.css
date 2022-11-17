@@ -1,0 +1,38 @@
+.container{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 0px;
+    width: 50%;
+}
+
+/* h1{ font-size: 50px;}
+p{ font-size: 20px;}
+
+body{ 
+    border: 2px solid;
+    border-radius: 5px;
+}
+
+.box-image{
+    background-image: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1773&q=80");
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    width: 95%;
+    margin: 10px 10px 10px 10px;
+} */
+
+.button-1{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+}
+
+.button-1:hover{
+    background-color: white;
+    color: blue;
+    border: 2px solid blue;
+    transition: 10ms;
+}

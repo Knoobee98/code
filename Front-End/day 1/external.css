@@ -1,0 +1,62 @@
+body{
+    background-color: #735F32;
+    color: #fff;
+}
+
+h3{
+    color: green;
+}
+
+/* tag selector */
+p{
+    color: aqua
+}
+
+/* id selector */
+/* #content-1{
+    color: red;
+} */
+/* class selector */
+.class-content-1{
+    color: brown;
+}
+
+#content-2{
+    color:darkgrey
+}
+
+#spec-2{
+    color: red;
+}
+
+.class-spec-2{
+    color: blue;
+}
+
+#spec-3{
+    color: red;
+}
+
+.mainContent > .secondContent > #spec-3{
+    color: blue;
+}
+
+#spec-3{
+    color: aqua;
+}
+
+/* attribute selector */
+/* [href]{
+    color: red;
+} */
+
+p{
+    font-family: Helvetica;
+    font-size: 12px;
+    font-weight: light;
+}
+
+.width-height{
+    width: 100px;
+    height: 100px;
+}
