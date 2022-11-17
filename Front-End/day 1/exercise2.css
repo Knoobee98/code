@@ -1,14 +1,14 @@
 table, tr, td{
     border: 1px solid;
     border-collapse: collapse;
+    background-color: orange;
 }
 
 .container{
     width: 100%;
     height: 100%;
-
 }
 
-body{
+/* body{
     background-color: orange
-}
+} */
