@@ -1,4 +1,14 @@
-#tables, #tr, #td{
-    border: 1px solid black;
+table, tr, td{
+    border: 1px solid;
     border-collapse: collapse;
+    background-color: orange;
 }
+
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+/* body{
+    background-color: orange
+} */
