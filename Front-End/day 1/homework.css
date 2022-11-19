@@ -1,0 +1,38 @@
+.navbar{
+    background-color: white;
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.navbar div{
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-left{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-right{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.jumbotron{
+    height: 700px;
+    background-color: grey;
+    border: 1px solid black;
+}
+
+.jumbotronText{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 80%;
+    font-size: 90px;
+    margin: 0px 0px 50px 100px;
+}
