@@ -1,33 +1,140 @@
+body{
+    margin: 0;
+}
+
+h1{
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
 .container{
     width: 100%;
     height: 100%;
-    background-color: grey;
-    border: 1px solid black;
+    background-color: #A4BE7B;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar{
     width: 100%;
     height: 50px;
-    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin-bottom: 20px;
+
 }
 
-.header{
-    width: 100%;
-    height: 10%;
-    background-color: pink;
-    border-bottom: 1px solid black;
+.navbar div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 0 10px;
 }
 
 .content{
     width: 100%;
-    height: 100%;
-    background-color: cyan;
-    border-bottom: 1px solid black;
+    height: 700px;
+    display: flex;
 }
 
-.footer{
+.content div{
+    width: 50%;
+    height: 100%;
+}
+
+.content img{
     width: 100%;
-    height: 10%;
-    background-color: darkslategrey;
-    border-top: 1px solid black;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 100%;
+}
+
+.content-left{
+    width: 50%;
+    justify-content: flex-start;
+}
+
+.content-right{
+    width: 50%;
+    justify-content: flex-end;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    width: 100%;
+    height: 50px;
+    background-color: darkgrey;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
