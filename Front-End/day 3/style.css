@@ -1,0 +1,153 @@
+body{
+    margin: 0;
+}
+
+.navbar{
+    background-color: grey;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.navbar div{
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-left{
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.navbar-right{
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-right ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+}
+
+.hero{
+    width: auto;
+    height: 900px;
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.hero div{
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-text{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.hero-img{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.about{
+    width: auto;
+    height: 900px;
+    background-color: lightgreen;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.about div{
+    padding: 10px;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+}
+
+.about-text{
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.about-img{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.skills{
+    width: auto;
+    height: 900px;
+    background-color: green;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.skills div{
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.skills-text{
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.skills-img{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.projects{
+    width: auto;
+    height: 900px;
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.projects div{
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.projects-text{
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.projects-img{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
