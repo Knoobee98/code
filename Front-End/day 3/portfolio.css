@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
+
+body{
+    margin: 0;
+    background-color: #373331;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    font-family: 'Sono';
+    height: 70px;
+    color: #80AC7B;
+}
+
+.navbar .navbar-right{
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 1px;
+}
+
+.navbar .navbar-right div{
+    text-align: center;
+}
+
+.navbar .navbar-right div a:hover{
+    color: #E8EAA1;
+}
+
+.navbar .navbar-right #btn{
+    text-align: right;
+}
+
+.navbar .navbar-right #btn #btn-real{
+    background-color: transparent;
+    border: 1px solid #E8EAA1;
+    color: #eff5f5;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-family: 'Sono';
+}
+
+.navbar .navbar-right #btn #btn-real:hover{
+    background-color: #605A56;
+    opacity: 0.9;
+    transition: 0,5s;
+}
+
+/* jumbotron section */
+
+.jumbotron{
+    height: 650px;
+    display: flex;
+}
+
+.jumbotron .jumbotron-left{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.jumbotron .jumbotron-left .line{
+    border-left: 1px solid white;
+    height: 90px;
+    position: fixed;
+    bottom: 0px;
+}
+
+.jumbotron .jumbotron-left .social{
+    list-style-type: none;
+    position: fixed;
+    bottom: 190px;
+}
+
+li{
+    list-style-type: none;
+}
+
+.jumbotron .main-jumbotron{
+    font-family: "Sono";
+    color: #80AC7B;
+    font-size: 20px;
+    padding-top: 100px;
+    flex: 5;
+}
+
+.jumbotron .main-jumbotron div .greeting{
+    font-family: 'monserrat';
+    font-size: 50px;
+    font-weight: 200;
+}
+
+.jumbotron .main-jumbotron div button{
+    background-color: transparent;
+    border: 1px solid #E8EAA1;
+    color: #eff5f5;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-family: 'Sono';
+}
+
+.jumbotron .main-jumbotron div button:hover{
+    background-color: #605A56;
+    opacity: 0.9;
+    transition: 0,5s;
+}
+
+.jumbotron .jumbotron-right{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}
+
+.jumbotron .jumbotron-right .line{
+    border-left: 1px solid white;
+    height: 90px;
+    position: fixed;
+    bottom: 0px;
+}
+
+.jumbotron .jumbotron-right .email{
+    transform: rotate(90deg);
+    color: #80AC7B;
+    position: fixed;
+    bottom: 190px;
+}
+
+/* about section */
+.about{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 3fr;
+    padding: 0px 300px;
+    font-family: 'montserrat';
+    color: #80AC7B;
+}
+
+.about .about-title{
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.about .about-title .line{
+    border-top: 1px solid white;
+    width: 400px;
+    background-color: #373331;
+    margin-left: 10px;
+}
+
+.about div p{
+    max-width: 90%;
+    font-size: 20px;
+    font-family: 'monserrat';
+}
+
+.about div img{
+    background-color: white;
+    opacity: 0.5;
+}
+
+.about div img:hover{
+    opacity: 1;
+    transition: 0.5s;
+}
+
+/* work secion */
+.work{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 0px 400px;
+    font-family: 'montserrat';
+    color: #80AC7B;
+    display: flex;
+    align-items: center;
+}
+
+.work .work-title{
+    grid-column: 1/3;
+    display: flex;
+    align-items: center;
+}
+
+.work .work-title .line{
+    border-top: 1px solid white;
+    width: 400px;
+    background-color: #373331;
+    margin-left: 10px;
+}
+
+.work .sidebar{
+    border-left: 1px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 300px;
+    padding: 0px 0px 0px 10px;
+}
+
+/* portfolio section */
