@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 body{
     margin: 0;
@@ -54,6 +54,7 @@ body{
 .jumbotron{
     height: 650px;
     display: flex;
+    margin-bottom: 250px;
 }
 
 .jumbotron .jumbotron-left{
@@ -88,7 +89,7 @@ li{
 }
 
 .jumbotron .main-jumbotron div .greeting{
-    font-family: 'monserrat';
+    font-family: 'Montserrat';
     font-size: 50px;
     font-weight: 200;
 }
@@ -135,8 +136,9 @@ li{
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 1fr 3fr;
     padding: 0px 300px;
-    font-family: 'montserrat';
+    font-family: 'Montserrat';
     color: #80AC7B;
+    margin-bottom: 250px;
 }
 
 .about .about-title{
@@ -156,7 +158,7 @@ li{
 .about div p{
     max-width: 90%;
     font-size: 20px;
-    font-family: 'monserrat';
+    font-family: 'Montserrat';
 }
 
 .about div img{
@@ -174,11 +176,12 @@ li{
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr 1fr;
-    padding: 0px 400px;
-    font-family: 'montserrat';
+    padding: 0px 400px 100px 400px;
+    font-family: 'Montserrat';
     color: #80AC7B;
-    display: flex;
-    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 250px;
+
 }
 
 .work .work-title{
@@ -196,11 +199,69 @@ li{
 
 .work .sidebar{
     border-left: 1px solid white;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px;
     padding: 0px 0px 0px 10px;
 }
 
+.work .sidebar div:hover{
+    background-color: #373331;
+    opacity: 0.5;
+}
+
+.work .description div .title{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+
+
 /* portfolio section */
+
+.portfolio{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 3fr;
+    padding: 0px  300px;
+    font-family: 'Montserrat';
+    color: #80AC7B;
+    margin-top: 50px;
+    margin-bottom: 100px;
+
+}
+
+.portfolio .title .line{
+    border-top: 1px solid white;
+    width: 400px;
+    background-color: #373331;
+    margin-left: 10px;
+}
+
+.porto-inline{
+    display: absolute;
+}
+
+.porto-inline .image{
+    background-color: grey;
+    width: 550px;
+    height: 300px;
+    border-radius: 10px;
+    z-index: -1;
+    margin-top: -200px;
+}
+
+.porto-inline .description{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.porto-inline .description .text{
+    background-color: #373331;
+    padding: 30px 30px;
+    z-index: 1;
+    max-width: 400px;
+}
