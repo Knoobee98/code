@@ -1,11 +1,16 @@
 import Home from './pages/home/home.jsx';
+import Profile from './pages/profile/profile.jsx';
+import Notfound from './pages/notfound/notfound.jsx';
+import {Routes, Route} from 'react-router-dom';
+
 
 function App() {
   return (
-    <div>
-      <h1>Hello, world!</h1>
-      <Home />
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="*" element={<Notfound />} />
+    </Routes>
   );
 }
 
