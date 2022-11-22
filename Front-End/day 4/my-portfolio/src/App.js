@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './stylesheet/styles.css';
+
+import Navbar from './components/navbar';
+import Jumbotron from './components/jumbotron';
+import About from './components/about';
+import Work from './components/work';
+import Porto from './components/portfolio';
+import Contact from './components/contact';
+import Footer from './components/footer';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navbar />
+      <Jumbotron />
+      <About />
+      <Work />
+      <Porto />
+      <Contact />
+      <Footer />
     </div>
   );
 }
