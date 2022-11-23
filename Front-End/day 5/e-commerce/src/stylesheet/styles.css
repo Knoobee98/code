@@ -1,0 +1,21 @@
+h1{
+    display: flex;
+    justify-content: center;
+}
+.Table{
+    width: 50%;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Table tr td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+    background-color: aqua
+}
