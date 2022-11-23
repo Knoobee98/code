@@ -5,6 +5,7 @@ body{
     margin: 0;
     background-color: #373331;
 }
+
 .navbar{
     display: flex;
     justify-content: space-between;
@@ -71,7 +72,7 @@ body{
 }
 
 .jumbotron .jumbotron-left .social{
-    list-style-type: none;
+    
     position: fixed;
     bottom: 190px;
 }
@@ -202,7 +203,7 @@ li{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0px 0px 0px 10px;
 }
 

@@ -6,10 +6,10 @@ class About extends React.Component {
     render(){
         return(
             <div>
-                    <div className="about">
-                <div className="about-title">
-                    <h1>1. About Me</h1>
-                    <div className="line">
+                <div className="about" id='abt'>
+                    <div className="about-title">
+                        <h1>1. About Me</h1>
+                        <div className="line">
                     </div>
                 </div>
                 <div>
