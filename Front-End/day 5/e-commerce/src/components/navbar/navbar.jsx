@@ -46,19 +46,22 @@ let Navbar = () => {
               <Text mr="30px" fontWeight="bold">
                 Find a store
               </Text>
-              <Button
-                mr="20px"
-                size="md"
-                borderRadius="full"
-                variant="ghost"
-                style={{
-                  backgroundColor: "white",
-                  color: "black",
-                  border: "1px solid black",
-                }}
-              >
-                Sign In
-              </Button>
+              <Link to="/login">
+                <Button
+                  mr="20px"
+                  size="md"
+                  borderRadius="full"
+                  variant="ghost"
+                  style={{
+                    backgroundColor: "white",
+                    color: "black",
+                    border: "1px solid black",
+                  }}
+                >
+                  Sign In
+                </Button>
+              </Link>
+
               <Link to="/register">
                 <Button
                   mr="20px"
