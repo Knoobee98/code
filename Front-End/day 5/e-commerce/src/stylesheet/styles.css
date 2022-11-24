@@ -2,20 +2,15 @@ h1{
     display: flex;
     justify-content: center;
 }
-.Table{
-    width: 50%;
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+table tr td{
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: aquamarine;
 }
 
-.Table tr td{
-    border: 1px solid black;
+table{
+    margin: 0 auto;
     border-collapse: collapse;
-    padding: 10px;
-    text-align: center;
-    background-color: aqua
 }

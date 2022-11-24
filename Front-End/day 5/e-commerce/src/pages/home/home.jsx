@@ -5,19 +5,19 @@
 //     state = {
 //         number: 0,
 //       }
-    
+
 //       // changeNumber = () => {
 //       //   this.setState({
 //       //     number: this.state.number + 1
 //       //   })
 //       // }
-    
-//       // decreaseNumber = () => { 
-//       //   this.setState({ 
+
+//       // decreaseNumber = () => {
+//       //   this.setState({
 //       //     number: this.state.number - 1
 //       //   })
 //       // }
-    
+
 //       changeNumber = (operator) => {
 //         if(operator === '+'){
 //           this.setState({number: this.state.number + +1})
@@ -27,18 +27,18 @@
 //           alert('data berhasil dikurangkan')
 //         }
 //       }
-    
+
 //       componentDidMount(){
 //         //sering digunakan untuk melakukan fetch data
 //         //dijalankan ketika proses render
 //         console.log('did mount running')
 //       }
-    
+
 //       componentDidUpdate(){
 //         //dijalankan setiap kali terjadi perubahan state
 //         console.log('did update running')
 //       }
-    
+
 //       componentWillUnmount(){
 //         //dijalankan sebelum component dihapus
 //         //sebelum berpindah halaman
@@ -50,7 +50,7 @@
 //         return(
 //             <>
 //         <h1>Numbers</h1>
-        
+
 //         <button onClick={() => this.changeNumber('-')}>
 //           -
 //         </button>
@@ -63,7 +63,7 @@
 //         <Link to='/profile'>
 //             <h1>menuju profile</h1>
 //         </Link>
-        
+
 //       </>
 //         )
 //     }
@@ -72,48 +72,48 @@
 // import { useState, useEffect, useRef } from 'react';
 // import {Link} from 'react-router-dom';
 
-import ProductTable from './../../components/productTable';
+import ProductTable from "./../../components/productTable";
 
 let Home = () => {
-    // const [number, setNumber] = useState(0);
+  // const [number, setNumber] = useState(0);
 
-    // let changeNumber = (operator) => {
-    //     // let newNumber = number;
-    //     // newNumber++
-    //     if(operator === '+'){
-    //         setNumber(number + 1);
-    //     } else {
-    //         setNumber(number - 1);
-    //     }
-    // }
+  // let changeNumber = (operator) => {
+  //     // let newNumber = number;
+  //     // newNumber++
+  //     if(operator === '+'){
+  //         setNumber(number + 1);
+  //     } else {
+  //         setNumber(number - 1);
+  //     }
+  // }
 
-    // // componentDidMount
-    // useEffect(() => {
-    //     console.log('useEffect did mount running');
-    // }, []);
+  // // componentDidMount
+  // useEffect(() => {
+  //     console.log('useEffect did mount running');
+  // }, []);
 
-    // // componentDidUpdate
-    // useEffect(() => {
-    //     console.log('useEffect did update running');
-    // }, [number]);
+  // // componentDidUpdate
+  // useEffect(() => {
+  //     console.log('useEffect did update running');
+  // }, [number]);
 
-    // // componentWillUnmount
-    // useEffect(() => {
-    //     return () => {
-    //         console.log('useEffect will unmount running');
-    //     }
-    // }, []);
+  // // componentWillUnmount
+  // useEffect(() => {
+  //     return () => {
+  //         console.log('useEffect will unmount running');
+  //     }
+  // }, []);
 
-    // const inputUsername = useRef();
-    // const inputPassword = useRef();
-    // let onSubmit = () => {
-    //     console.log(inputUsername.current.value);
-    //     console.log(inputPassword.current.value);
-    // }
+  // const inputUsername = useRef();
+  // const inputPassword = useRef();
+  // let onSubmit = () => {
+  //     console.log(inputUsername.current.value);
+  //     console.log(inputPassword.current.value);
+  // }
 
-    return(
-        <>
-        {/* {console.log('render 1x')}
+  return (
+    <>
+      {/* {console.log('render 1x')}
         <h1>This is Home</h1>
         <button onClick={() => changeNumber('-')}>
             -
@@ -136,9 +136,9 @@ let Home = () => {
         <input type='password' placeholder='input password' ref={inputPassword} />
         <br />
         <button onClick={onSubmit}>submit</button> */}
-        <ProductTable />
-        </>
-    )
-}
+      <ProductTable />
+    </>
+  );
+};
 
 export default Home;
