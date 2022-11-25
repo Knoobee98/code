@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './supports/utilities.css';
+
 import { Routes, Route } from 'react-router-dom';
 
 import Login from './pages/loginPage/login';
