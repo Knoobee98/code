@@ -19,10 +19,40 @@
       "id": 3
     },
     {
+      "username": "fauzan",
+      "email": "fauzan@gmail.com",
+      "password": "fauz",
+      "id": 4
+    },
+    {
+      "username": "nathan",
+      "email": "nathan@gmail.com",
+      "password": "nat12",
+      "id": 5
+    },
+    {
+      "username": "adi",
+      "email": "adi@gmail.com",
+      "password": "123",
+      "id": 6
+    },
+    {
+      "username": "alo",
+      "email": "alo@gmail.com",
+      "password": "alok123skinfree",
+      "id": 7
+    },
+    {
       "username": "",
       "email": "",
       "password": "",
-      "id": 4
+      "id": 8
+    },
+    {
+      "username": "bruno",
+      "email": "bruno@gmail.com",
+      "password": "bruno1",
+      "id": 9
     }
   ]
 }
