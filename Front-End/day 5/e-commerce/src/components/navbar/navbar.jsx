@@ -10,14 +10,13 @@ import { Link } from "react-router-dom";
 
 let Navbar = () => {
   let location = useLocation();
-  console.log(location);
   return (
     <>
       <Flex px="50px" py="20px" className="navbar">
         <Flex alignItems="center" w="50%">
           <Link to="/">
             <Image
-              src="https://upload.wikimedia.org/wikipedia/id/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
+              src="https://purwadhika.com/static/media/logopwdk-01.a09cf2fc.png"
               alt="logo"
               h="50px"
               w="50px"
