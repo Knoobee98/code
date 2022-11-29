@@ -53,6 +53,18 @@
       "email": "bruno@gmail.com",
       "password": "bruno1",
       "id": 9
+    },
+    {
+      "username": "ali",
+      "email": "ali08",
+      "password": "ali12345",
+      "id": 10
+    },
+    {
+      "username": "abc",
+      "email": "abc@gmail.com",
+      "password": "halokamikembali1",
+      "id": 11
     }
   ]
 }

@@ -1,9 +1,12 @@
+/* eslint-disable no-throw-literal */
 import "./register.css";
 import { useRef, useState } from "react";
 import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
 
 let Register = () => {
   const [disabledButton, setDisabledButton] = useState(false);
+  const [message, setMessage] = useState("");
 
   const username = useRef();
   const password = useRef();
@@ -31,33 +34,39 @@ let Register = () => {
         `http://localhost:5000/users?password=${inputPassword}`
       );
 
-      if (!inputUsername && !inputEmail && !inputPassword) {
-        alert("Please fill all the fields");
-        setDisabledButton(false);
-      } else if (
-        inputPassword.length < 6 &&
-        inputPassword.data.value.match(/[a-z]/g) &&
-        inputPassword.data.value.match(/[A-Z]/g) &&
-        inputPassword.data.value.match(/[0-9]/g)
-      ) {
-        alert(
-          "Password must be at least 6 characters long and must contain at least one uppercase letter, one lowercase letter, and one number"
-        );
-        setDisabledButton(false);
-      } else if (checkEmail.data.length > 0 && checkPassword.data.length > 0) {
-        alert("Email/password already exists");
-        setDisabledButton(false);
-      } else {
+      if (
+        inputEmail.length === 0 ||
+        inputPassword.length === 0 ||
+        inputUsername.length === 0
+      )
+        throw { message: "please fill all the field!" };
+
+      if (inputPassword.length < 8)
+        throw { message: "password must be at least 8 characters!" };
+
+      let character = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
+      if (!character.test(inputPassword))
+        throw { message: "password must contain number!" };
+
+      if (checkEmail.data.length === 0 && checkPassword.data.length === 0) {
         await register();
-        alert("Registration successful");
+        username.current.value = "";
+        email.current.value = "";
+        password.current.value = "";
+        toast.success("Register Success!");
         setDisabledButton(false);
+        setMessage("");
+      } else {
+        // eslint-disable-next-line no-throw-literal
+        throw { message: "Email or Password already exist!" };
       }
     } catch (error) {
-      throw error.message;
+      setMessage(error.message);
     } finally {
       setDisabledButton(false);
     }
   };
+
   return (
     <>
       <div className="flex flex-col items-center py-20">
@@ -88,6 +97,7 @@ let Register = () => {
             placeholder="*input email"
             className="py-2 px-2 w-100 rounded-md my-3"
             style={{ border: "1px solid grey" }}
+            required
           />
           <input
             ref={password}
@@ -96,9 +106,9 @@ let Register = () => {
             className="py-2 px-2 w-100 rounded-md"
             style={{ border: "1px solid grey" }}
             pattern="(?=.*\d).{6,}"
-            title="Must contain at least one number and at least 6 or more characters"
+            required
           />
-          {onSubmit.error && onSubmit.success}
+          <p className="text-red-500">{message}</p>
           <button
             disabled={disabledButton}
             onClick={onSubmit}
@@ -107,6 +117,7 @@ let Register = () => {
             {disabledButton ? "loading..." : "Register Now"}
           </button>
         </div>
+        <Toaster />
       </div>
     </>
   );

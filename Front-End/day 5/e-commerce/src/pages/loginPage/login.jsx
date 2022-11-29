@@ -1,6 +1,8 @@
+/* eslint-disable no-throw-literal */
 
 import {useRef} from 'react';
 import axios from 'axios';
+import toast, {Toaster} from 'react-hot-toast';
 
 
 let Login = () => {
@@ -14,64 +16,51 @@ let Login = () => {
     
 
     try {
-      let checkUsername = await axios.get(
-        `http://localhost:5000/users?username=${inputUsername}`
-      )
-  
-      let checkPassword = await axios.get(
-        `http://localhost:5000/users?password=${inputPassword}`
+      let response = await axios.get(
+        `http://localhost:5000/users?username=${inputUsername}&password=${inputPassword}`
       )
 
-      if(checkUsername.data.length === 0 && checkPassword.data.length === 0){
-        alert("Username and Password not found! please register first!")
+      if(response.data.length === 0){
+       throw {message: 'username or password not found!'}
         //link to homepage
       } else {
-        alert("Login Success!")
+        toast.success('login success!')
         // link to homepage
       }
     } catch (error) {
-      console.log(error.messages);
+      toast(error.message);
     }
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center">
-      <div className="container mx-auto max-w-md shadow-md hover:shadow-lg transition duration-300">
-        <h1 className="font-bold text-black">Login or create an account</h1>
-        <div className="py-12 p-10 bg-white rounded-xl">
-          <div className="mb-6">
-            <input
-              ref={username}
-              type="text"
-              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-green-400 rounded"
-              placeholder="Username or Email"
-            />
+    <div className="flex flex-col items-center">
+          <h1 className="flex justify-center mt-16 font-extrabold text-2xl ">
+              Sign in or create an account
+          </h1>
+          <div className="mt-8 flex flex-col items-center w-2/6 self-center my-bg-light drop-shadow-lg rounded-xl">
+              <p className="text-lg self-start ml-20 pt-10 my-dark">
+                  <span className="my-main font-bold">*</span> indicates required field
+              </p>
+              <input ref={username} type='text' placeholder='* Username or email address' required className="border-solid border-2 border-slate-300 rounded-md px-2 py-2 w-3/4 mt-5" />
+              <input ref={password} type='password' placeholder='* Password' required className="border-solid border-2 border-slate-300 rounded-md px-2 py-2 w-3/4 mt-10 mb-10" />
+              <div className="self-start ml-20 text-lg mb-5">
+                  <input type="checkbox" value="" className="w-6 h-6 text-green-600 bg-gray-100 rounded border-gray-300  dark:bg-gray-700 dark:border-gray-600 focus:ring-transparent" />
+                  <label className="ml-2 text-md text-gray-900 dark:text-gray-300">Keep me signed in. <span className="my-main font-bold underline hover:no-underline ">Details</span></label>
+              </div>
+              <p className="my-main underline hover:no-underline font-bold self-start ml-20">
+                  Forgot your username?
+              </p>
+              <p className="my-main underline hover:no-underline font-bold self-start ml-20 mt-1">
+                  Forgot your password?
+              </p>
+              <div className="mt-10 self-end mr-10 ">
+                  <button onClick={onLogin} className="my-bg-main px-7 py-3 rounded-full my-light text-xl mb-10 drop-shadow-lg font-bold">
+                      Sign In
+                  </button>
+              </div>
           </div>
-          <div>
-            <input
-              ref={password}
-              type="password"
-              className="border bg-gray-100 py-2 px-4 w-96 outline-none focus:ring-2 focus:ring-green-400 rounded"
-              placeholder="Password"
-            />
-          </div>
-          <input
-            type="checkbox"
-            className="appearance-none checked:bg-blue-500 ..."
-          />
-          <label className="text-sm text-gray-600"> Always Signed in</label>
-          <br/>
-          <span className="text-sm text-gray-700 inline-block mt-4 hover:text-indigo-600 hover:underline hover:cursor-pointer transition duration-200">
-            Forgot Password?
-          </span>
-          <button 
-          className="w-full mt-6 text-black-50 font-bold bg-green-600 py-3 rounded-full hover:bg-green-500 transition duration-300 "
-          onClick={onLogin}>
-            Login
-          </button>
-        </div>
-      </div>
-    </div>
+          <Toaster />
+      </div>
   );
 };
 
