@@ -3,7 +3,7 @@ let initialState = {
     username: '',
 }
 
-function CounterReducer(state= initialState, action) {
+function CounterReducer(state = initialState, action) {
     switch(action.type){
         case 'INCREMENT':
             return{...state, number: state.number + 1}
