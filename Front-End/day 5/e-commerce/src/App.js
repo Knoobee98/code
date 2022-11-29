@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './pages/loginPage/login';
 import Register from './pages/register/registerPage';
 import Navbar from './components/navbar/navbar';
+import Homepage from './pages/home/homepage'
 
 class App extends React.Component {
   render(){
@@ -14,6 +15,7 @@ class App extends React.Component {
       <>
       <Navbar />
       <Routes>
+        <Route path='/' element={<Homepage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
       </Routes>
