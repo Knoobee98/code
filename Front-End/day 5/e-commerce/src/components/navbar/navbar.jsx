@@ -1,5 +1,3 @@
-import { Flex, Text, Spacer, Image, Button } from "@chakra-ui/react";
-
 import "./navbar.css";
 
 import { MdLocationOn } from "react-icons/md";
@@ -11,81 +9,56 @@ import { Link } from "react-router-dom";
 let Navbar = (props) => {
   let location = useLocation();
   return (
-    <>
-      <Flex px="50px" py="20px" className="navbar">
-        <Flex alignItems="center" w="50%">
+    <div className="">
+      <div className="navbar flex justify-between px-10 h-20 w-screen">
+        <div className="flex items-center">
           <Link to="/">
-            <Image
+            <img
               src="https://purwadhika.com/static/media/logopwdk-01.a09cf2fc.png"
               alt="logo"
-              h="50px"
-              w="50px"
+              width="50px"
+              height="50px"
             />
           </Link>
-
           {location.pathname === "/register" ? null : (
             <>
-              <Text pl="30px" fontWeight="bold">
-                Cards
-              </Text>
-              <Link to="/menu">
-                <Text pl="30px" fontWeight="bold">
-                  Orders
-                </Text>
-              </Link>
-              <Text pl="30px" fontWeight="bold">
-                Gift
-              </Text>
+              <span className="pl-10 font-bold">Cards</span>
+              <span className="pl-10 font-bold">
+                <Link to="/menu">Menu</Link>
+              </span>
+              <span className="pl-10 font-bold">Gift</span>
             </>
           )}
-        </Flex>
-        <Spacer />
-        <Flex alignItems="center">
+        </div>
+        <div className="flex items-center">
           {location.pathname === "/register" ? null : (
             <>
-              <MdLocationOn />
-              <Text mr="30px" fontWeight="bold">
-                Find a store
-              </Text>
-              {
-                props.data.username?
+              <div className="flex items-center">
+                <MdLocationOn />
+                <span className="mr-10 font-bold">Find a store</span>
+              </div>
+              {props.data.username ? (
                 props.data.username
-                :
+              ) : (
                 <>
-                <Link to="/login">
-                <Button
-                  mr="20px"
-                  size="md"
-                  borderRadius="full"
-                  variant="ghost"
-                  style={{
-                    backgroundColor: "white",
-                    color: "black",
-                    border: "1px solid black",
-                  }}
-                >
-                  Sign In
-                </Button>
-              </Link>
-
-              <Link to="/register">
-                <Button
-                  mr="20px"
-                  size="md"
-                  borderRadius="full"
-                  style={{ backgroundColor: "black", color: "white" }}
-                >
-                  Join Now
-                </Button>
-              </Link>
+                  <button className="my-bg-dark my-light rounded-full mr-2 px-3 py-2 m-5">
+                    <Link to="/login">Sign in</Link>
+                  </button>
+                  <button
+                    className="my-dark rounded-full px-3 py-2 m-5"
+                    style={{ border: "1px solid black" }}
+                  >
+                    <Link to="/register">Join now</Link>
+                  </button>
                 </>
-              }
+              )}
             </>
           )}
-        </Flex>
-      </Flex>
-    </>
+        </div>
+      </div>
+    </div>
   );
 };
 
 export default Navbar;
+//src="https://purwadhika.com/static/media/logopwdk-01.a09cf2fc.png"
