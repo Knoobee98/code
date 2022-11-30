@@ -24,3 +24,7 @@ class App extends React.Component {
 }
 
 export default App;
+
+//tugas
+//1. buatlah halaman landing page
+//2. buatlah halaman menu (mock up)

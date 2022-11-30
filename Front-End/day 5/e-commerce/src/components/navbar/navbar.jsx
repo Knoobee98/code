@@ -39,7 +39,7 @@ let Navbar = () => {
         </Flex>
         <Spacer />
         <Flex alignItems="center">
-          {location.pathname === "/register" ? null : (
+          {location.pathname === "/register" && location.pathname === "/login" ? null : (
             <>
               <MdLocationOn />
               <Text mr="30px" fontWeight="bold">
