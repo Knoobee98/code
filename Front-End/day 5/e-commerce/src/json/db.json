@@ -43,28 +43,145 @@
       "id": 7
     },
     {
-      "username": "",
-      "email": "",
-      "password": "",
-      "id": 8
-    },
-    {
       "username": "bruno",
       "email": "bruno@gmail.com",
       "password": "bruno1",
-      "id": 9
+      "id": 8
     },
     {
       "username": "ali",
       "email": "ali08",
       "password": "ali12345",
-      "id": 10
+      "id": 9
     },
     {
       "username": "abc",
       "email": "abc@gmail.com",
       "password": "halokamikembali1",
-      "id": 11
+      "id": 10
     }
-  ]
+  ],
+
+  "products": [
+    {
+     "id": 1,
+     "name": "Americano",
+     "size": [
+       {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+       {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+       {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+     ],
+     "topping": [
+       "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+       "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+     ],
+     "sugar": ["Less", "Normal", "More"],
+     "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    },
+    {
+      "id": 2,
+      "name": "Capuccino",
+      "size": [
+        {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+        {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+        {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+      ],
+      "topping": [
+        "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+        "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+      ],
+      "sugar": ["Less", "Normal", "More"],
+      "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    },
+    {
+      "id": 3,
+      "name": "Caramel Macchiato",
+      "size": [
+        {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+        {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+        {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+      ],
+      "topping": [
+        "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+        "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+      ],
+      "sugar": ["Less", "Normal", "More"],
+      "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    },
+    {
+      "id": 4,
+      "name": "Flat White",
+      "size": [
+        {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+        {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+        {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+      ],
+      "topping": [
+        "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+        "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+      ],
+      "sugar": ["Less", "Normal", "More"],
+      "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    },
+    {
+      "id": 5,
+      "name": "Pumpkin Spice Latte",
+      "size": [
+        {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+        {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+        {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+      ],
+      "topping": [
+        "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+        "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+      ],
+      "sugar": ["Less", "Normal", "More"],
+      "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    },
+    {
+      "id": 6,
+      "name": "Caramel Frappuccino",
+      "size": [
+        {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+        {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+        {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+      ],
+      "topping": [
+        "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+        "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+      ],
+      "sugar": ["Less", "Normal", "More"],
+      "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    },
+    {
+      "id": 7,
+      "name": "Mocha Frappuccino",
+      "size": [
+        {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+        {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+        {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+      ],
+      "topping": [
+        "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+        "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+      ],
+      "sugar": ["Less", "Normal", "More"],
+      "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    },
+    {
+      "id": 8,
+      "name": "Vanilla Bean Frappuccino",
+      "size": [
+        {"option": "Short", "calories": 5, "cup": "8 fl oz", "price": 30000},
+        {"option": "Tall", "calories": 10, "cup": "12 fl oz", "price": 35000},
+        {"option": "Grande", "calories": 15, "cup": "16 fl oz", "price": 38000}
+      ],
+      "topping": [
+        "Cinnamon Powder", "Salted Caramel Foam", "Chocolate Cream",
+        "Red and Green Sprinkle", "Cinamon Dolce Sprinkle"
+      ],
+      "sugar": ["Less", "Normal", "More"],
+      "image": "https://www.starbucksathome.com/id/sites/default/files/2021-03/3-CaffeAmericano_LongShadow_Cream_1.png"
+    }
+   ]
 }
