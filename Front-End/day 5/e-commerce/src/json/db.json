@@ -62,10 +62,15 @@
     }
   ],
 
+  "category": [
+    "drinks", "snacks"
+  ],
+
   "products": [
     {
       "id": 1,
       "name": "Americano",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -103,6 +108,7 @@
     {
       "id": 2,
       "name": "Cappucino",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -140,6 +146,7 @@
     {
       "id": 3,
       "name": "Flat White",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -177,6 +184,7 @@
     {
       "id": 4,
       "name": "Caramel Macchiato",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -214,6 +222,7 @@
     {
       "id": 5,
       "name": "Honey Citrus Mint Tea",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -251,6 +260,7 @@
     {
       "id": 6,
       "name": "Peppermint Hot Chocolate",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -288,6 +298,7 @@
     {
       "id": 7,
       "name": "Steamed Apple Juice",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -325,6 +336,7 @@
     {
       "id": 8,
       "name": "Caramel Brulee Creme",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -362,6 +374,7 @@
     {
       "id": 9,
       "name": "Cold Brew Coffee with Milk",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -399,6 +412,7 @@
     {
       "id": 10,
       "name": "Iced Peach Green Tea Lemonade",
+      "category": "drinks",
       "size": [
         {
           "option": "Short",
@@ -432,6 +446,71 @@
         "More"
       ],
       "image": "https://globalassets.starbucks.com/assets/bebc2b416fb44f69a193be358ad8b3f8.jpg?impolicy=1by1_wide_topcrop_630"
+    },
+    {
+      "name": "Bacon, Sausage & Egg Wrap",
+      "category": "snack",
+      "customization": [
+        {
+          "option": "sriracha sauce"
+        }
+      ]
+    },
+    {
+      "name": "Impossible™ Breakfast Sandwich",
+      "category": "snack",
+      "customization": [
+        {
+          "option": "sriracha sauce"
+        },
+        {
+          "option": "no cheese"
+        },
+        {
+          "option": "no egg"
+        },
+        {
+          "option": "no meat"
+        }
+      ]
+    },
+    {
+      "name": "Sausage, Cheddar & Egg Sandwich",
+      "category": "snack",
+      "customization": [
+        {
+          "option": "sriracha sauce"
+        },
+        {
+          "option": "no cheese"
+        },
+        {
+          "option": "no egg"
+        },
+        {
+          "option": "no meat"
+        }
+      ],
+      "image": "https://app.starbucks.com/weblx/images/product-placeholder.png"
+    },
+    {
+      "name": "Double-Smoked Bacon, Cheddar & Egg Sandwich",
+      "category": "snack",
+      "customization": [
+        {
+          "option": "sriracha sauce"
+        },
+        {
+          "option": "no cheese"
+        },
+        {
+          "option": "no egg"
+        },
+        {
+          "option": "no meat"
+        }
+      ],
+      "image": "https://app.starbucks.com/weblx/images/product-placeholder.png"
     }
   ]
 }
