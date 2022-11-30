@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
-let Navbar = () => {
+let Navbar = (props) => {
   let location = useLocation();
   return (
     <>
@@ -28,9 +28,11 @@ let Navbar = () => {
               <Text pl="30px" fontWeight="bold">
                 Cards
               </Text>
-              <Text pl="30px" fontWeight="bold">
-                Orders
-              </Text>
+              <Link to="/menu">
+                <Text pl="30px" fontWeight="bold">
+                  Orders
+                </Text>
+              </Link>
               <Text pl="30px" fontWeight="bold">
                 Gift
               </Text>
@@ -39,13 +41,18 @@ let Navbar = () => {
         </Flex>
         <Spacer />
         <Flex alignItems="center">
-          {location.pathname === "/register" && location.pathname === "/login" ? null : (
+          {location.pathname === "/register" ? null : (
             <>
               <MdLocationOn />
               <Text mr="30px" fontWeight="bold">
                 Find a store
               </Text>
-              <Link to="/login">
+              {
+                props.data.username?
+                props.data.username
+                :
+                <>
+                <Link to="/login">
                 <Button
                   mr="20px"
                   size="md"
@@ -71,6 +78,8 @@ let Navbar = () => {
                   Join Now
                 </Button>
               </Link>
+                </>
+              }
             </>
           )}
         </Flex>

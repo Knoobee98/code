@@ -1,35 +1,19 @@
 /* eslint-disable no-throw-literal */
 
 import {useRef} from 'react';
-import axios from 'axios';
-import toast, {Toaster} from 'react-hot-toast';
+import {Toaster} from 'react-hot-toast';
+import {useNavigate} from 'react-router-dom'
 
 
-let Login = () => {
+
+let Login = (props) => {
   const username = useRef();
   const password = useRef();
 
-  let onLogin = async() => {
-    const inputUsername = username.current.value;
-    const inputPassword = password.current.value;
+  let navigate = useNavigate();
 
-    
-
-    try {
-      let response = await axios.get(
-        `http://localhost:5000/users?username=${inputUsername}&password=${inputPassword}`
-      )
-
-      if(response.data.length === 0){
-       throw {message: 'username or password not found!'}
-        //link to homepage
-      } else {
-        toast.success('login success!')
-        // link to homepage
-      }
-    } catch (error) {
-      toast(error.message);
-    }
+  if(props.isRedirect.redirect){
+    navigate('/');
   }
 
   return (
@@ -54,7 +38,7 @@ let Login = () => {
                   Forgot your password?
               </p>
               <div className="mt-10 self-end mr-10 ">
-                  <button onClick={onLogin} className="my-bg-main px-7 py-3 rounded-full my-light text-xl mb-10 drop-shadow-lg font-bold">
+                  <button onClick={() => props.funclogin.onLogin(username.current.value, password.current.value)} className="my-bg-main px-7 py-3 rounded-full my-light text-xl mb-10 drop-shadow-lg font-bold">
                       Sign In
                   </button>
               </div>
