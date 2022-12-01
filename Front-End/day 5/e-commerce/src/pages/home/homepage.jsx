@@ -11,7 +11,7 @@ let Homepage = () => {
       <div className="flex items-center basis-3/5 py-10">
         <div className="flex flex-col">
             <div>
-                <h1 className="px-2 py-5 text-xl font-bold">Purwadhika® Rewards</h1>
+                <h1 className="px-2 py-4 text-xl font-bold">Purwadhika® Rewards</h1>
             </div>
             <div className="flex flex-cols gap-3 p-2">
                 <div>
@@ -75,9 +75,6 @@ let Homepage = () => {
                     </div>
                 </div>
             </div>
-            {/* <div className="fixed mt-10 self-end mr-10">
-                <button className="my-bg-main px-7 py-3 rounded-full my-light text-xl mb-10 drop-shadow-lg font-bold">Start an order</button>
-            </div> */}
         </div>
       </div>
       {/* jumbotron */}

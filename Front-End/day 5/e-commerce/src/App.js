@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 import "./supports/utilities.css";
 
-import { Routes, Route, } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from 'axios';
 
@@ -28,6 +28,7 @@ let App = () => {
         if(getTokenid){
           let response = await axios.get(`http://localhost:5000/users?id=${getTokenid}`)
           setUsername(response.data[0].username)
+          setRedirect(true);
         }
       } catch (error){
 
@@ -58,13 +59,19 @@ let App = () => {
         toast(error.message);
       }
     };
+
+    let onLogout = () => {
+      localStorage.removeItem('token');
+      setUsername("");
+      setRedirect(false);
+    }
     
     return (
       <>
-        <Navbar data={{username}}/>
+        <Navbar data={{username}} logout={{onLogout}}/>
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register isRedirect={{redirect}}/>} />
           <Route path="/login" element={<Login funclogin={{onLogin}} isRedirect={{redirect}} />} />
           <Route path="/menu" element={<Menu />} />
         </Routes>

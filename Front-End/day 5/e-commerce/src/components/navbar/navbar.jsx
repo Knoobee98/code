@@ -2,9 +2,9 @@ import "./navbar.css";
 
 import { MdLocationOn } from "react-icons/md";
 
-import { useLocation } from "react-router-dom";
+import {CgProfile} from 'react-icons/cg';
 
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 let Navbar = (props) => {
   let location = useLocation();
@@ -24,7 +24,7 @@ let Navbar = (props) => {
             <>
               <span className="pl-10 font-bold">Cards</span>
               <span className="pl-10 font-bold">
-                <Link to="/menu">Menu</Link>
+                <button><Link to="/menu">Menu</Link></button>
               </span>
               <span className="pl-10 font-bold">Gift</span>
             </>
@@ -37,9 +37,16 @@ let Navbar = (props) => {
                 <MdLocationOn />
                 <span className="mr-10 font-bold">Find a store</span>
               </div>
-              {props.data.username ? (
-                props.data.username
-              ) : (
+              {props.data.username ? 
+                <div className="flex items-center">
+                  <div className="font-bold">
+                  {props.data.username}
+                  </div>
+                  <div className="mt-1 ml-1">
+                    <CgProfile onClick={props.logout.onLogout}/>
+                  </div>
+                </div>
+              : (
                 <>
                   <button className="my-bg-dark my-light rounded-full mr-2 px-3 py-2 m-5">
                     <Link to="/login">Sign in</Link>
@@ -61,4 +68,3 @@ let Navbar = (props) => {
 };
 
 export default Navbar;
-//src="https://purwadhika.com/static/media/logopwdk-01.a09cf2fc.png"

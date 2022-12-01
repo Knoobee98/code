@@ -3,8 +3,9 @@ import "./register.css";
 import { useRef, useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { Navigate } from "react-router-dom";
 
-let Register = () => {
+let Register = (props) => {
   const [disabledButton, setDisabledButton] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -67,6 +68,10 @@ let Register = () => {
     }
   };
 
+  if(props.isRedirect.redirect){
+    return <Navigate to="/" />
+  }
+  
   return (
     <>
       <div className="flex flex-col items-center py-20">
