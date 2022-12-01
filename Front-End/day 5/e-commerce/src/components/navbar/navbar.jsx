@@ -7,7 +7,7 @@ import {CgProfile} from 'react-icons/cg';
 import { useLocation, Link } from "react-router-dom";
 
 let Navbar = (props) => {
-  let location = useLocation();
+  const location = useLocation();
   return (
     <div className="">
       <div className="navbar flex justify-between px-10 h-20 w-screen">
@@ -20,15 +20,23 @@ let Navbar = (props) => {
               height="50px"
             />
           </Link>
-          {location.pathname === "/register" ? null : (
+          {location.pathname === '/register' ? 
+          null 
+          : 
             <>
-              <span className="pl-10 font-bold">Cards</span>
               <span className="pl-10 font-bold">
-                <button><Link to="/menu">Menu</Link></button>
+                Cards
+                </span>
+              <span className="pl-10 font-bold">
+                <Link to='/menu'>
+                  Menu
+                  </Link>
               </span>
-              <span className="pl-10 font-bold">Gift</span>
+              <span className="pl-10 font-bold">
+                Gift
+                </span>
             </>
-          )}
+          }
         </div>
         <div className="flex items-center">
           {location.pathname === "/register" ? null : (

@@ -35,7 +35,7 @@ let Menu = () => {
         let newDataFilter = backupData.filter((value) => {
             return value.category === idx
         })
-        setData(newDataFilter.data)
+        setData(newDataFilter)
         setCategorySelected(idx)
         
     }

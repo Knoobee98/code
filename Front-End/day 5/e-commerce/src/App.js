@@ -64,6 +64,7 @@ let App = () => {
       localStorage.removeItem('token');
       setUsername("");
       setRedirect(false);
+      toast.success("logout success!");
     }
     
     return (
@@ -73,7 +74,7 @@ let App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/register" element={<Register isRedirect={{redirect}}/>} />
           <Route path="/login" element={<Login funclogin={{onLogin}} isRedirect={{redirect}} />} />
-          <Route path="/menu" element={<Menu />} />
+          <Route exact path="/menu" element={<Menu />} />
         </Routes>
       </>
     );
