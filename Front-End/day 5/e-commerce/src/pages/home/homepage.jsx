@@ -6,7 +6,7 @@ let Homepage = () => {
     <div className="flex mt-5">
         {/* card fixed greeting */}
       <div className="flex flex-col basis-2/5">
-        <div className="fixed h-screen bottom-0 flex items-center justify-center pl-32">
+        <div className="h-screen bottom-0 flex items-center justify-center pl-32">
             <h1 className="text-red-500 text-xl font-bold">Holiday your way 🧣</h1>
         </div>
       </div>

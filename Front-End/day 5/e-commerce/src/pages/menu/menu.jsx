@@ -1,11 +1,12 @@
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 let Menu = () => {
     const [data, setData] = useState([]);
-    const [backupData, setBackupData] = useState([]);
+    // const [backupData, setBackupData] = useState([]);
     const [category, setCategory] = useState([])
     const [categorySelected, setCategorySelected] = useState(0);
 
@@ -13,31 +14,54 @@ let Menu = () => {
         onGetData();
     }, []);
 
+    // get data by client
+    // let onGetData = async() => {
+    //     try {
+    //         let response = await axios.get(`http://localhost:5000/products`)
+    //         let responseCategory = await axios.get(`http://localhost:5000/category`)
+
+    //         let newResponseFilter = response.data.filter(value => {
+    //             return value.category === 0
+    //         })
+    //         console.log(newResponseFilter)
+
+    //         setData(newResponseFilter);
+    //         setBackupData(response.data);
+    //         setCategory(responseCategory.data)
+    //     } catch (error){
+    //         console.log(error);
+    //     }
+    // }
+
+    // get data by servers
     let onGetData = async() => {
-        try {
-            let response = await axios.get(`http://localhost:5000/products`)
-            let responseCategory = await axios.get(`http://localhost:5000/category`)
+        try{
+            let response = await axios.get('http://localhost:5000/products?category=0');
+            let responseCategory = await axios.get('http://localhost:5000/category')
 
-            let newResponseFilter = response.data.filter(value => {
-                return value.category === 0
-            })
-            console.log(newResponseFilter)
-
-            setData(newResponseFilter);
-            setBackupData(response.data);
-            setCategory(responseCategory.data)
+            setData(response.data);
+            setCategory(responseCategory.data);
         } catch (error){
             console.log(error);
         }
     }
 
-    let onFilter = (idx) => {
-        let newDataFilter = backupData.filter((value) => {
-            return value.category === idx
-        })
-        setData(newDataFilter)
-        setCategorySelected(idx)
+    //onFilter by server
+    // let onFilter = (idx) => {
+    //     let newDataFilter = backupData.filter((value) => {
+    //         return value.category === idx
+    //     })
+    //     setData(newDataFilter)
+    //     setCategorySelected(idx)
         
+    // }
+
+    //onFilter by server
+    let onFilter = async(idx) => {
+        let response = await axios.get(`http://localhost:5000/products?category=${idx}`);
+
+        setData(response.data);
+        setCategorySelected(idx);
     }
 
     return(
@@ -78,7 +102,9 @@ let Menu = () => {
                             return(
                                 <div key={index} className='flex items-center mt-3'>
                                     <div>
+                                        <Link to={`/product/${value.id}`}>
                                         <img src={value.image} style={{ width:'100px', height:'100px' }} alt="product-pics" className='rounded-full' />
+                                        </Link>
                                     </div>
                                     <div className='pl-3'>
                                         <h1 className='my-fs-20 font-bold'>

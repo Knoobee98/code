@@ -12,6 +12,7 @@ import Register from "./pages/register/registerPage";
 import Navbar from "./components/navbar/navbar";
 import Homepage from "./pages/home/homepage";
 import Menu from "./pages/menu/menu";
+import DetailProduct from "./pages/detail/detailProduct";
 
 let App = () => {
     const [username, setUsername] = useState("");
@@ -74,7 +75,8 @@ let App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/register" element={<Register isRedirect={{redirect}}/>} />
           <Route path="/login" element={<Login funclogin={{onLogin}} isRedirect={{redirect}} />} />
-          <Route exact path="/menu" element={<Menu />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route exact path="/product/:id" element={<DetailProduct />} />
         </Routes>
       </>
     );
