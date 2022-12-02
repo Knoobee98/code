@@ -61,11 +61,14 @@
       "id": 10
     }
   ],
-
   "category": [
-    "Drinks", "Snacks", "Food", "At Home Coffee", "Merchandise", "Gift Cards"
+    "Drinks",
+    "Snacks",
+    "Food",
+    "At Home Coffee",
+    "Merchandise",
+    "Gift Cards"
   ],
-
   "products": [
     {
       "id": 1,
@@ -767,5 +770,13 @@
       ],
       "image": "https://globalassets.starbucks.com/assets/0612427b8d134a098b6f7457fdac44d2.jpg?impolicy=1by1_medium_630"
     }
-  ]
+  ],
+  "cart": {
+    "id": 1,
+    "size": 1,
+    "topping": 1,
+    "sugar": 1,
+    "qty": 1,
+    "user_id": 2
+  }
 }
