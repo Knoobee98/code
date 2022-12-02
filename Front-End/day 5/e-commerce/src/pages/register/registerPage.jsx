@@ -68,10 +68,10 @@ let Register = (props) => {
     }
   };
 
-  if(props.isRedirect.redirect){
-    return <Navigate to="/" />
+  if (props.isRedirect.redirect) {
+    return <Navigate to="/" />;
   }
-  
+
   return (
     <>
       <div className="flex flex-col items-center py-20">
@@ -85,6 +85,7 @@ let Register = (props) => {
           way you pay. Get access to mobile ordering, a birthday Reward, and
           moremore.
         </p>
+        {/* cards */}
         <div className="cards mt-20 px-20 py-10 w-2/5 rounded-md flex flex-col">
           <p className="font-bold">*Indicates required field</p>
           <h1 className="my-fs-20 mt-5 mb-3 font-bold">Personal Information</h1>
