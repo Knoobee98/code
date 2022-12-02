@@ -49,6 +49,7 @@ export default function DetailProduct(){
             let checkCart = await axios.get(`http://localhost:500/cart?product_id=${data.id}`)
             if(checkCart.data.length === 0){
                 let addToCart = await axios.post('http://localhost:5000/cart', dataTosend)
+                console.log(addToCart);
             } else {
                 let newQuantity = checkCart.data[0].qty + 1
                 let updateQty = await axios.patch(`http://localhost:5000/cart/${checkCart.data[0].id}`, {qty: newQuantity})
