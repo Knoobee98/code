@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 export default function Home(){
     const [data, setData] = useState([]);
     const message = useRef();
+    const editedMessage = useState('');
 
     // useEffect(() => {
     //     onGetData();
@@ -27,8 +28,15 @@ export default function Home(){
     }
 
     let onEdit = async(id) => {
-
-
+        let inputEdit = editedMessage.current.value;
+        try{
+            await axios.patch(`http://localhost:5000/post/${id}`, {
+            message: inputEdit,
+            })
+            toast.success('Edit success');
+        } catch(error){
+            toast.error('failed to edit');
+        }
         // let edit = message.current.value;
 
         // await axios.patch(`http://localhost:5000/post/${id}`, {
