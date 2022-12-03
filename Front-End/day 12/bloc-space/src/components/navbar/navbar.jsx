@@ -4,7 +4,7 @@ export default function Navbar(){
     return(
         <div className="flex justify-between items-center bg-green-200 border border-slate-300 py-4 px-5">
             <div>
-                <Link to="/login">Logo</Link>
+                <Link to="/landingPage">Logo</Link>
             </div>
             <div className="flex">
                 {/* <div className="mr-4">

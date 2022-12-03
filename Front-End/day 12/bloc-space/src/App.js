@@ -3,8 +3,9 @@ import './App.css';
 import {Routes, Route} from 'react-router-dom';
 
 import Navbar from './components/navbar/navbar';
-import Login from './pages/login/login';
+import LandingPage from './pages/landingPage/landingPage';
 import Register from './pages/register/register';
+import Home from './pages/homepage/home';
 
 function App() {
   return (
@@ -12,8 +13,9 @@ function App() {
       <Navbar />
 
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/landingPage" element={<LandingPage />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
 
     </div>
