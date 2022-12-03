@@ -1,6 +1,7 @@
 import './App.css';
 
 import {Routes, Route} from 'react-router-dom';
+import {Toaster} from 'react-hot-toast'
 
 import Navbar from './components/navbar/navbar';
 import LandingPage from './pages/landingPage/landingPage';
@@ -11,13 +12,13 @@ function App() {
   return (
     <div>
       <Navbar />
-
       <Routes>
-        <Route path="/landingPage" element={<LandingPage />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
       </Routes>
 
+    <Toaster />
     </div>
   );
 }

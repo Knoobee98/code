@@ -1,25 +1,36 @@
 import {useRef} from 'react';
-import {Navigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 export default function Login(){
     const username = useRef();
     const password = useRef();
 
+    let navigate = useNavigate();
+
     let onLogin = async() => {
         let inputUsername = username.current.value;
         let inputPassword = password.current.value;
 
-        let response = await axios.get(`http:/localhost:5000/users?username=${inputUsername}&password=${inputPassword}`);
+        try{
+            let response = await axios.get(`http://localhost:5000/users?username=${inputUsername}&password=${inputPassword}`);
 
-        if(response.data.length === 0){
-            alert('user not found')
-        } else {
-            alert('login success');
-            return <Navigate to="/home" />
+            if(response.data.length === 0){
+                toast.error('Username or password is incorrect');
+            } else {
+                toast.success('Login success');
+                //setTimeout to 2000ms
+                navigate('/home');
+            }
+        } catch (error) {
+            toast(error.message);
         }
+
+        
     }
+
     return(
         <>
         <div className="flex flex-col items-center m-24 border rounded-md">

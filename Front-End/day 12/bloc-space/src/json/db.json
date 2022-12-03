@@ -1,11 +1,32 @@
 {
-    "users": [
-        {
-            "id" : 1,
-            "username" : "admin",
-            "password" : "admin123",
-            "email" : "admin@gmail.com"
-        }
-       
-    ]
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "name": "admin",
+      "password": "admin1234",
+      "email": "admin@gmail.com"
+    },
+    {
+      "username": "fdhuha",
+      "name": "fauzan",
+      "email": "fdhuha@gmail.com",
+      "password": "FAUZAN1234",
+      "id": 2
+    },
+    {
+      "username": "adiw",
+      "name": "adi wijaya",
+      "email": "adi@gmail.com",
+      "password": "adiwijaya0809",
+      "id": 3
+    }
+  ],
+  "post": [
+    {
+        "id": 1,
+        "title": "Greetings",
+        "content": "hello, welcome to bloc space!"
+    }
+  ]
 }
