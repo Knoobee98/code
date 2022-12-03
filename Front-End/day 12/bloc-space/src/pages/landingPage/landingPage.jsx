@@ -21,6 +21,7 @@ export default function Login(){
                 toast.error('Username or password is incorrect');
             } else {
                 toast.success('Login success');
+                localStorage.setItem('token', response.data[0].id);
                 //setTimeout to 2000ms
                 navigate('/home');
             }

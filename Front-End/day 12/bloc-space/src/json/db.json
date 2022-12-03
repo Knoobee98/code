@@ -24,9 +24,24 @@
   ],
   "post": [
     {
-        "id": 1,
-        "title": "Greetings",
-        "content": "hello, welcome to bloc space!"
+      "id": 1,
+      "message": "hi BlocSpaces!"
+    },
+    {
+      "message": "test post",
+      "id": 2
+    },
+    {
+      "message": "halo dunia",
+      "id": 3
+    },
+    {
+      "message": "desimal bukan matematika tapi kata-kata",
+      "id": 4
+    },
+    {
+      "message": "test",
+      "id": 5
     }
   ]
 }

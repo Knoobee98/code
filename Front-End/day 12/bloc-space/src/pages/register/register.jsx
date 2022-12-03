@@ -1,10 +1,9 @@
 /* eslint-disable no-throw-literal */
-import {useRef, useState} from 'react';
+import {useRef} from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast'
 
 export default function Register(){
-    const [message, setMessage] = useState('');
 
     const username = useRef();
     const email = useRef();
@@ -57,7 +56,7 @@ export default function Register(){
                 toast.error('Email or password already exist');
             }
         } catch (error){
-            setMessage(error.message);
+            toast.error(error.message);
         }
         
     }
