@@ -11,7 +11,7 @@
       "username": "fdhuha",
       "name": "fauzan",
       "email": "fdhuha@gmail.com",
-      "password": "FAUZAN1234",
+      "password": "fauzan1234",
       "id": 2
     },
     {
@@ -24,32 +24,34 @@
   ],
   "post": [
     {
-      "id": 1,
-      "message": "hi BlocSpaces!"
+      "usersId": "1",
+      "message": "welcome to blocspace!",
+      "id": 1
     },
     {
-      "message": "test post",
-      "id": 2
-    },
-    {
-      "message": "halo dunia",
-      "id": 3
-    },
-    {
-      "message": "desimal bukan matematika tapi kata-kata",
-      "id": 4
-    },
-    {
-      "message": "test",
+      "usersId": "1",
+      "message": "ada apa ini? kok tidak bisa didelete?",
       "id": 5
     },
     {
-      "message": "text",
+      "usersId": "1",
+      "message": "",
       "id": 6
     },
     {
-      "message": "dddd",
+      "usersId": "2",
+      "message": "this is my first post",
       "id": 7
+    },
+    {
+      "usersId": "2",
+      "message": "test lg nih, bisa gk ya?",
+      "id": 8
+    },
+    {
+      "usersId": "2",
+      "message": "wdwdwda",
+      "id": 9
     }
   ]
 }
