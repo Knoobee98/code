@@ -1,39 +1,36 @@
+/* eslint-disable no-throw-literal */
 import {useEffect, useRef, useState} from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import {useNavigate} from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export default function Home(props){
     const [data, setData] = useState([]);
-    const [dataUser, setDataUser] = useState([]);
+    const [error, setError] = useState('');
     const message = useRef();
+    let navigate = useNavigate();
     
-    useEffect(() => {
-        onGetData();
-        // onGetUser();
-    }, []);
-   
-    // let token = localStorage.getItem('token');
 
     let onPost = async() => {
 
         let post = message.current.value;
 
         try{
-            if(post.length === 0) {toast.error('Please fill the field');} else
+            if(post.length === 0) {throw {message: 'post tidak boleh kosong!'};} else
 
-            if(post.length >= 120) {toast.error('Message must be less than 120 characters');} 
+            if(post.length >= 120) {throw {message: 'Message must be less than 120 characters'};} 
             else {await axios.post('http://localhost:5000/post', {
-                usersId: dataUser.id,
+                usersId: parseInt(localStorage.getItem('token')),
                 message: post,
             });
+            onGetData();
+            setError('')
             toast.success('Post success');
             message.current.value = "";
         }
-
-            
-            
         } catch (error){
-            toast.error(error.message);
+            setError(error.message);
         }
     }
 
@@ -42,25 +39,59 @@ export default function Home(props){
     let onGetData = async() => {
         try{
             let response = await axios.get("http://localhost:5000/post");
+            let getUsers = await axios.get("http://localhost:5000/users");
 
-            setData(response.data);
+            let newData = [];
+            response = response.data;
+            getUsers = getUsers.data;
+            for(let i = 0; i < response.length; i++){
+                for(let j = 0; j < getUsers.length; j++){
+                    if(response[i].usersId === getUsers[j].id){
+                        response[i].username = getUsers[j].email;
+                        newData.push(response[i]);
+                        break;
+                    }
+                }
+            }
+            
+            setData(newData);
         }
         catch (error){
             console.log(error);
         }
-       
+        
     }
 
-    let onGetUser = async() => {
+    useEffect(() => {
+        props.funcCheck.checkIsLogin()
+        onGetData();
+    }, []);
+    
+    let onDelete = async(id) => {
         try{
-            let response = await axios.get("http://localhost:5000/users");
-
-            setDataUser(response.dataUser);
+            Swal.fire({
+                title: 'Do you want to delete?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Delete',
+                denyButtonText: `Don't Delete`,
+              }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                axios.delete(`http://localhost:5000/post/${id}`)
+                  Swal.fire('Saved!', '', 'success')
+                  onGetData();
+                } else if (result.isDenied) {
+                  Swal.fire('Changes are not saved', '', 'info')
+                }
+              })
         } catch(error){
             console.log(error);
         }
     }
 
+
+    if(props.keeplogin === false) return navigate('/');
     return(
         <div className='bg-slate-700 h-auto'>
             <div className="flex items-center">
@@ -73,12 +104,12 @@ export default function Home(props){
                             <div className="overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
                                 <svg className="absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
                             </div>
-                            <input ref={message} type='text' placeholder="what's up?" className=" border border-slate-500 bg-slate-700 rounded-md px-7 py-3"/>
+                            <textarea ref={message}  placeholder="what's up?" className=" border border-slate-500 bg-slate-700 rounded-md px-7 py-3"/>
                         </div>
                         <div className="flex self-end">
                             <button onClick={onPost} className="border border-white rounded-full bg-green-200 px-5 py-3">Post</button>
-                            
                         </div>
+                        <span>{error}</span>
                     </div>
                     {/* post */}
                     {
@@ -89,15 +120,17 @@ export default function Home(props){
                                         <div className="overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600">
                                             <svg className="absolute -left-1 w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd"></path></svg>
                                         </div>
-                                        <div className="flex flex-col">
-                                            {/* <p className="font-bold text-white">{dataUser[0].username}</p> */}
+                                        <div className="flex flex-col"><p className="font-bold text-white">{value.username}</p>
+                                            
                                             <p>date</p>
                                         </div>
                                         <div key={index} className='text-md text-white'>{value.message}</div>
                                     </div>
                                     <div className='flex gap-4'>
                                         {/* <button onClick={onEdit}>edit</button> */}
-                                        {/* <button onClick={onDelete} >delete</button> */}
+                                        {
+                                            value.usersId === parseInt(localStorage.getItem('token')) ? <button onClick={() => onDelete(value.id)} className='border border-white rounded-full bg-red-200 px-5 py-3'>delete</button> : ''
+                                        }
                                     </div>
                                 </div>
                             )

@@ -22,36 +22,5 @@
       "id": 3
     }
   ],
-  "post": [
-    {
-      "usersId": "1",
-      "message": "welcome to blocspace!",
-      "id": 1
-    },
-    {
-      "usersId": "1",
-      "message": "ada apa ini? kok tidak bisa didelete?",
-      "id": 5
-    },
-    {
-      "usersId": "1",
-      "message": "",
-      "id": 6
-    },
-    {
-      "usersId": "2",
-      "message": "this is my first post",
-      "id": 7
-    },
-    {
-      "usersId": "2",
-      "message": "test lg nih, bisa gk ya?",
-      "id": 8
-    },
-    {
-      "usersId": "2",
-      "message": "wdwdwda",
-      "id": 9
-    }
-  ]
+  "post": []
 }

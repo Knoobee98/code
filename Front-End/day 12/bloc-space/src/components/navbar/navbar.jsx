@@ -20,7 +20,7 @@ export default function Navbar(props){
                     location.pathname === "/register" || location.pathname === "/" ?
                     null :
                     <div>
-                    <button onClick={props.logout.OnLogout}>logout</button>
+                    <button onClick={props.funcSignOut}>Sign Out</button>
                     </div>
                 }
             </div>

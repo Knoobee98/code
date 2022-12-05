@@ -2,7 +2,7 @@
 import {useRef} from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast'
-import {useNavigate} from 'react-router-dom';
+
 
 export default function Register(props){
 
@@ -10,8 +10,6 @@ export default function Register(props){
     const email = useRef();
     const name = useRef();
     const password = useRef();
-
-    let navigate = useNavigate();
 
     let onRegister = async() => {
         let inputUsername = username.current.value;
@@ -64,9 +62,7 @@ export default function Register(props){
         
     }
     
-    if(props.isRedirect.redirect){
-        navigate('/home');
-    }
+    
     return(
         <div className="flex flex-col items-center mt-20">
             <h1 className="mb-4 text-bold text-2xl">register</h1>
