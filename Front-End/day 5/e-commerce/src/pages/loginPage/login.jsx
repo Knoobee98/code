@@ -5,12 +5,13 @@ import {Toaster} from 'react-hot-toast';
 import {useNavigate} from 'react-router-dom'
 
 
-
 let Login = (props) => {
   const username = useRef();
   const password = useRef();
 
   let navigate = useNavigate();
+
+  
 
   if(props.isRedirect.redirect){
     navigate('/');
@@ -37,10 +38,11 @@ let Login = (props) => {
               <p className="my-main underline hover:no-underline font-bold self-start ml-20 mt-1">
                   Forgot your password?
               </p>
-              <div className="mt-10 self-end mr-10 ">
+              <div className="mt-10 mr-10 flex flex-col gap-1">
                   <button onClick={() => props.funclogin.onLogin(username.current.value, password.current.value)} className="my-bg-main px-7 py-3 rounded-full my-light text-xl mb-10 drop-shadow-lg font-bold">
                       Sign In
                   </button>
+                  <button onClick={() => props.funcLogingoogle.onLoginWithGoogle()} className="my-bg-main px-7 py-3 rounded-full my-light text-xl mb-10 drop-shadow-lg font-bold">Sign In With Google</button>
               </div>
           </div>
           <Toaster />
