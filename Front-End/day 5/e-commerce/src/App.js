@@ -13,6 +13,7 @@ import Navbar from "./components/navbar/navbar";
 import Homepage from "./pages/home/homepage";
 import Menu from "./pages/menu/menu";
 import DetailProduct from "./pages/detail/detailProduct";
+import Cart from "./pages/carts/cart";
 
 import {
   GoogleAuthProvider, 
@@ -124,6 +125,7 @@ let App = () => {
           <Route path="/login" element={<Login funclogin={{onLogin}} funcLogingoogle={{onLoginWithGoogle}} isRedirect={{redirect}} />} />
           <Route path="/menu" element={<Menu />} />
           <Route exact path="/product/:id" element={<DetailProduct />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </>
     );

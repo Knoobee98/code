@@ -11,6 +11,7 @@ export default function DetailProduct(){
     const [sizeToShow, setSizeToShow] = useState(0);
     const [toppingToShow, setToppingToShow] = useState(0);
     const [sugarToShow, setSugarToShow] = useState(0);
+    const [isDisabled, setIsDisabled] = useState('false');
 
     let onGetData = async() => {
         try{
@@ -38,6 +39,7 @@ export default function DetailProduct(){
 
     let onSubmit = async() => {
         try{
+        
             let dataTosend = {
                 product_id: data.id,
                 size: parseInt(sizeToShow),
@@ -46,15 +48,21 @@ export default function DetailProduct(){
                 qty: 1,
                 user_id: parseInt(localStorage.getItem('token'))
             }
+            let checkToken = localStorage.getItem('tokenUid');
             let checkCart = await axios.get(`http://localhost:500/cart?product_id=${data.id}`)
-            if(checkCart.data.length === 0){
-                let addToCart = await axios.post('http://localhost:5000/cart', dataTosend)
-                console.log(addToCart);
+            if(checkToken){
+                if(checkCart.data.length === 0){
+                    let addToCart = await axios.post('http://localhost:5000/cart', dataTosend)
+                    console.log(addToCart);
+                } else {
+                    let newQuantity = checkCart.data[0].qty + 1
+                    let updateQty = await axios.patch(`http://localhost:5000/cart/${checkCart.data[0].id}`, {qty: newQuantity})
+                    console.log(updateQty);
+                }
             } else {
-                let newQuantity = checkCart.data[0].qty + 1
-                let updateQty = await axios.patch(`http://localhost:5000/cart/${checkCart.data[0].id}`, {qty: newQuantity})
-                console.log(updateQty);
+                setIsDisabled(true);
             }
+            
         } catch (error){
             console.log(error);
         }
@@ -140,9 +148,14 @@ export default function DetailProduct(){
                     }
                 </div>
             </div>
-            <div className="flex items-center justify-center mt-16">
-                <button onClick={onSubmit} className="bg-green-400 p-3 rounded-full border-slate-100 text-2xl text-slate-50 font-bold">Order Now</button>
-            </div>
+            {
+                localStorage.getItem('tokenUid') || localStorage.getItem('token') ? 
+                <div className="flex items-center justify-center mt-16">
+                <button disabled={isDisabled} onClick={onSubmit} className="bg-green-400 p-3 rounded-full border-slate-100 text-2xl text-slate-50 font-bold">Order Now</button>
+                </div>
+                :  null
+            }
+
         </div>
     )
 }

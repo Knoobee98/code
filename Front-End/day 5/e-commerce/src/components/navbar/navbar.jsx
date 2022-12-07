@@ -10,7 +10,7 @@ let Navbar = (props) => {
   const location = useLocation();
   return (
     <div>
-            <div className='navbar flex px-10 w-100 justify-between'>
+            <div className='navbar flex px-10 py-11 justify-between'>
                 <div className='flex items-center'>
                     <Link to='/'>
                         <img src="https://purwadhika.com/static/media/logopwdk-01.a09cf2fc.png" width='50px' height='50px' alt='logo' />
