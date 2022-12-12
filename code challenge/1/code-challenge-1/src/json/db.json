@@ -1,10 +1,33 @@
 {
   "users": [
     {
-      "username": "fauzanDhuha",
+      "username": "fdhuhaFauzan",
       "email": "fdhuha@gmail.com",
-      "password": "Fauzan12345",
+      "password": "fauzan121098",
+      "status": false,
       "id": 1
+    },
+    {
+      "username": "joe",
+      "email": "joe@gmail.com",
+      "password": "joeman123456",
+      "status": false,
+      "id": 2
+    },
+    {
+      "username": "fifa",
+      "email": "fifa@gmail.com",
+      "password": "fifalavide1234567",
+      "status": false,
+      "id": 3
+    },
+    {
+      "username": "fifi",
+      "email": "fifi@gmail.com",
+      "password": "fifinyafifa1234567",
+      "status": false,
+      "id": 4
     }
-  ]
+  ],
+  "posts": []
 }
