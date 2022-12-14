@@ -1,4 +1,1 @@
-{
-    "users": [],
-    "movies": []
-}
+{"users":[{"uid":1670987209276,"username":"masdefry","email":"masdefry@gmail.com","password":"pwd123jcwd","role":"admin"}],"movies":[{"name":"Weathering with you","release_date":21,"release_month":8,"release_year":2021,"duration_min":111,"genre":"Romantic","status":"on show","location":"bandung","time":"9 am"},{"name":"Garuda di dadaku","release_date":18,"release_month":6,"release_year":2009,"duration_min":150,"genre":"Drama","status":"on show","location":"bandung","time":"9 am"}]}

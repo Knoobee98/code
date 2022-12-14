@@ -17,15 +17,24 @@ module.exports = {
 
     login: (req, res) => {
         let body = req.body
-        let getData = JSON.parse(fs.readFileSync('./db/db.json'))
+        let {users} = JSON.parse(fs.readFileSync('./db/db.json'))
 
-        if(getData.users.find(user => user.email === body.email && user.password === body.password)){
-            res.status(200).send({
-                uid: getData.users.uid,
-                username: getData.users.username,
-                email: getData.users.email,
-                role: 'admin'
-            })
-        }
+        let dataToSend = {}
+        users.forEach((value) => {
+            if(body.username === value.username && body.password === value.password){
+                dataToSend = {
+                    uid: value.uid,
+                    username: value.username,
+                    email: value.email,
+                    role: value.role
+                }
+            }
+        })
+
+        res.status(201).send({
+            isError: false,
+            message: 'login success',
+            data: dataToSend
+        })
     }
 }
