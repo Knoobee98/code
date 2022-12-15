@@ -25,4 +25,4 @@ SELECT * FROM passangers WHERE sex = 'male' AND age > (
 -- like selection
 
 -- limit 
-SELECT * FROM passangers
+SELECT * FROM passangers WHERE Name = 'west';
