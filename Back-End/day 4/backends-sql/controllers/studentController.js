@@ -6,7 +6,7 @@ module.exports = {
     getAllStudents: async(req, res) => {
         try {
             let getData = await query('SELECT * FROM students')
-            console.log(getData)
+            
             res.status(201).send({ 
                 isError: false,
                 message: 'get data success',
@@ -44,5 +44,5 @@ module.exports = {
             })
         }
     },
-    
+
 }
