@@ -5,7 +5,7 @@ USE day04_titanic;
 SELECT * FROM passangers;
 
 -- grouping selection
-SELECT Survived, COUNT(*) as total_survived FROM passangers GROUP BY Survived;
+SELECT Survived, COUNT(*) as total_survived FROM passangers WHERE survived = 1 GROUP BY Survived;
 
 -- mendapatkan total penumpang masing2 kelas
 SELECT Pclass, COUNT(*) as total_passangers FROM passangers GROUP BY Pclass;
@@ -25,4 +25,9 @@ SELECT * FROM passangers WHERE sex = 'male' AND age > (
 -- like selection
 
 -- limit 
-SELECT * FROM passangers WHERE Name = 'west';
+SELECT * FROM passangers WHERE Name LIKE '%john%';
+
+SELECT Survived, sex, COUNT(*) as total FROM passangers WHERE sex = 'male' AND survived = 1;
+SELECT Survived, sex, COUNT(*) as total FROM passangers WHERE sex = 'female' AND survived = 1;
+SELECT Survived, sex, COUNT(*) as total FROM passangers WHERE survived = 1 GROUP BY sex;
+SELECT * FROM passangers WHERE survived = 1 AND Pclass = 3;

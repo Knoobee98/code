@@ -22,8 +22,8 @@ module.exports = {
 
     getPassangersName: async(req, res) => {
         try{
-            let body = req.body;
-            let getData = await query(`SELECT * FROM passangers WHERE Name LIKE '%${body.name}%'`);
+            let {name} = req.query
+            let getData = await query(`SELECT * FROM passangers WHERE Name LIKE '%${name}%';`);
             res.status(201).send({
                 isError: false,
                 message: 'get data success',
@@ -40,7 +40,7 @@ module.exports = {
 
     getTotalSurvived: async(req, res) => {
         try{
-            let getData = await query(`SELECT Survived, COUNT(*) as total_survived FROM passangers WHERE survived = 1 GROUP BY Survived`);
+            let getData = await query(`SELECT Survived, COUNT(*) as total_survived FROM passangers WHERE survived = 1 GROUP BY Survived;`);
             res.status(201).send({
                 isError: false,
                 message: 'get data success',
@@ -57,7 +57,7 @@ module.exports = {
 
     getTotalSurvivedByGender: async(req, res) => {
         try{
-            let getData = await query('SELECT Survived, sex, COUNT(*) as total FROM passangers WHERE survived = 1 GROUP BY sex')
+            let getData = await query('SELECT Sex, COUNT(*) as total FROM passangers WHERE survived = 1 GROUP BY sex;')
             res.status(201).send({
                 isError: false,
                 message: 'get data success',
@@ -74,8 +74,8 @@ module.exports = {
 
     getTotalSurvivedByClass: async(req, res) => {
         try{
-            let body = req.body
-            let getData = await query(`SELECT Survived, Pclass, COUNT(*) as total FROM passangers WHERE Survived = 1 GROUP BY Pclass HAVING Pclass = ${body.Pclass}`)
+            let {Pclass} = req.query
+            let getData = await query(`SELECT * FROM passangers WHERE Survived = 1 AND Pclass = ${Pclass};`)
             res.status(201).send({
                 isError: false,
                 message: 'get data success',
