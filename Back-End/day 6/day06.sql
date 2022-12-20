@@ -50,7 +50,13 @@ CREATE EVENT update_status ON SCHEDULE AT DATE_ADD(NOW(), INTERVAL 1 MINUTE)
 DO UPDATE transactions SET status = "Expired";
 
 -- backup database
-SELECT * FROM day04_titanic.passangers
+SELECT * FROM day04_titanic.passangers;
+
+SELECT * FROM product_detail;
+SELECT * FROM products;
+SELECT * FROM product_images;
+SELECT * FROM carts;
+
 
 
 

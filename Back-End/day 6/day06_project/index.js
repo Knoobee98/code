@@ -8,8 +8,11 @@ app.get('/', (req, res) => {
     res.status(201).send('<h1>hello world</h1>')
 })
 
-const myrouter = require('./routers/myrouter');
+const { myrouter } = require('./routers');
 app.use('/myrouter', myrouter);
+
+const { productsRouter } = require('./routers');
+app.use('/products', productsRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
