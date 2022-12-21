@@ -37,8 +37,8 @@ let App = () => {
       try{
         let getTokenid = localStorage.getItem('token');
         if(getTokenid){
-          let response = await axios.get(`http://localhost:5000/users?id=${getTokenid}`)
-          setUsername(response.data[0].username)
+          let response = await axios.get(`http://localhost:3002/users/get`)
+          setUsername(response.data.data.username)
           setRedirect(true);
         }
       } catch (error){
@@ -60,25 +60,26 @@ let App = () => {
     let onLogin = async(inputUsername,inputPassword) => {
 
       try {
-        let response = await axios.get(
-          `http://localhost:5000/users?username=${inputUsername}&password=${inputPassword}`
-        );
+        let response = await axios.post(`http://localhost:3002/users/login`, {
+          username: inputUsername,
+          password: inputPassword
+        })
 
         if (response.data.length === 0) {
           throw { message: "username or password not found!" };
           //link to homepage
         } else {
-          
-          localStorage.setItem('token', `${response.data[0].id}`);;
-          setUsername(response.data[0].username);
-          toast.success("login success!");
+          console.log(response);
+          localStorage.setItem('token', `${response.data.data.id}`);;
+          setUsername(response.data.data.username);
+          toast.success(response.data.message);
           setTimeout(() => {
             setRedirect(true)
           }, 2000)
           // link to homepage
         }
       } catch (error) {
-        toast(error.message);
+        toast(error.response.data.message);
       }
     };
 

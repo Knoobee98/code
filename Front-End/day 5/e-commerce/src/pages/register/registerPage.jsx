@@ -19,7 +19,7 @@ let Register = (props) => {
     let inputPassword = password.current.value;
 
     let register = async () => {
-      await axios.post("http://localhost:5000/users", {
+      await axios.post(`http://localhost:3002/users/register`, {
         username: inputUsername,
         email: inputEmail,
         password: inputPassword,
@@ -28,39 +28,37 @@ let Register = (props) => {
 
     try {
       setDisabledButton(true);
-      let checkEmail = await axios.get(
-        `http://localhost:5000/users?email=${inputEmail}`
-      );
-      let checkPassword = await axios.get(
-        `http://localhost:5000/users?password=${inputPassword}`
-      );
+      // let checkEmail = await axios.get(
+      //   `http://localhost:5000/users?email=${inputEmail}`
+      // );
+      // let checkPassword = await axios.get(
+      //   `http://localhost:5000/users?password=${inputPassword}`
+      // );
 
-      if (
-        inputEmail.length === 0 ||
-        inputPassword.length === 0 ||
-        inputUsername.length === 0
-      )
-        throw { message: "please fill all the field!" };
+      // if (
+      //   inputEmail.length === 0 ||
+      //   inputPassword.length === 0 ||
+      //   inputUsername.length === 0
+      // )
+      //   throw { message: "please fill all the field!" };
 
-      if (inputPassword.length < 8)
-        throw { message: "password must be at least 8 characters!" };
+      // if (inputPassword.length < 8)
+      //   throw { message: "password must be at least 8 characters!" };
 
-      let character = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
-      if (!character.test(inputPassword))
-        throw { message: "password must contain number!" };
+      // let character = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/;
+      // if (!character.test(inputPassword))
+      //   throw { message: "password must contain number!" };
 
-      if (checkEmail.data.length === 0 && checkPassword.data.length === 0) {
+      
         await register();
+        console.log(register.message);
         username.current.value = "";
         email.current.value = "";
         password.current.value = "";
         toast.success("Register Success!");
         setDisabledButton(false);
         setMessage("");
-      } else {
-        // eslint-disable-next-line no-throw-literal
-        throw { message: "Email or Password already exist!" };
-      }
+        
     } catch (error) {
       setMessage(error.message);
     } finally {
