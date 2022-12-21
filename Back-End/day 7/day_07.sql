@@ -10,3 +10,4 @@ INSERT INTO product_detail(weight, description, stock, products_id) VALUES (2, '
 INSERT INTO product_images(url) VALUES ('images');
 
 -- library
+USE jcwd2302_library;
