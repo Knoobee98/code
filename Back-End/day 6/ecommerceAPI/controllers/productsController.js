@@ -42,9 +42,7 @@ module.exports = {
                 data: null
             })
 
-            let createProduct = await products.createProduct({
-                name
-            }, {transaction: t})
+            let createProduct = await products.createProduct({ name }, {transaction: t})
 
             await t.commit()
             res.status(200).send({
