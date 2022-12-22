@@ -1,10 +1,20 @@
 module.exports = {
-    getProduct: (req, res) => {
-        res.status(200).send({
-            isError: false,
-            message: 'get product success',
-            data: null
-        })
+    getProduct: async(req, res) => {
+        try {
+            let findProduct = await products.findAll()
+            res.status(200).send({
+                isError: false,
+                message: 'get product success',
+                data: findProduct
+            })
+        } catch (error) {
+            res.status(400).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
+        
     },
 
     getProductId: (req, res) => {
@@ -15,12 +25,40 @@ module.exports = {
         })
     },
 
-    createProduct: (req, res) => {
-        res.status(200).send({
+    createProduct: async(req, res) => {
+        try {
+            const { name } = req.body
+            const t  = await sequelize.transaction()
+
+            let checkProduct = await products.findOne({
+                where: {
+                    name: name
+                }
+            })
+
+            if(checkProduct) return res.status(400).send({
+                isError: true,
+                message: 'product already exist',
+                data: null
+            })
+
+            let createProduct = await products.createProduct({
+                name
+            }, {transaction: t})
+
+            await t.commit()
+            res.status(200).send({
             isError: false,
             message: 'create product success',
-            data: null
-        })
+            data: createProduct
+            })
+        } catch (error) {
+            res.status(400).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
     },
 
     updateProduct: (req, res) => {
