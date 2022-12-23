@@ -1,11 +1,20 @@
+//import sequelize
+const { sequelize } = require('./../models')
+const { Op } = require('sequelize')
+
+//import model
+const db = require('./../models/index')
+const products = db.products
+const images = db.images
+
 module.exports = {
     getProduct: async(req, res) => {
         try {
-            let findProduct = await products.findAll()
+            let findMenu = await products.findAll({ attributes: ['name'], include: [{model: images, attributes: ['url']}]})
             res.status(200).send({
                 isError: false,
                 message: 'get product success',
-                data: findProduct
+                data: findMenu
             })
         } catch (error) {
             res.status(400).send({

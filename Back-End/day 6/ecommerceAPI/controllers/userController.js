@@ -10,6 +10,12 @@ const db = require('./../models/index')
 const users = db.users
 const users_address = db.users_address
 
+//import hash
+const { hashPassword, hashMatch } = require('./../lib/hashPassword')
+
+//import jwttoken
+const { createToken, validateToken } = require('./../lib/token')
+
 module.exports = {
     getUser: async(req, res) => {
         try {
@@ -45,25 +51,31 @@ module.exports = {
             //cek database apakah exist
             let checkUser = await users.findOne({
                 where: {
-                    [Op.and]: [
-                        {username: username},
-                        {password: password}
-                    ]
+                    username
                 }
             })
-            console.log(checkUser.dataValues.id)
-            if(!checkUser){
-                res.status(404).send({
-                    isError: true,
-                    message: 'username & password is wrong',
-                    data: null
-                })
-            }
+            // console.log(checkUser.dataValues.id)
+            if(!checkUser) return res.status(404).send({
+                isError: true,
+                message: 'username doesnt exist',
+                data: null
+            })
+
+            let matchPassword = await matchPassword(password, checkUser.dataValues.password)
+
+            if(!matchPassword) return res.status(404).send({
+                isError: true,
+                message: 'password not match',
+                data: null
+            })
+
+            //generate token
+            const token = createToken({id: checkUser.dataValues.id})
 
             res.status(200).send({
                 isError: false,
                 message: 'login success',
-                data: {id: checkUser.dataValues.id, username: checkUser.dataValues.username}
+                data: {token, username: checkUser.dataValues.username}
             })
 
         } catch (error) {
@@ -72,6 +84,14 @@ module.exports = {
                 message: error.message,
                 data: null
             })
+        }
+    },
+
+    keepLogin: (req, res) => {
+        try {
+            
+        } catch (error) {
+            
         }
     },
 
@@ -105,7 +125,7 @@ module.exports = {
                 })
             
             // step 4: simpan data ke database
-            let resCreateUser = await users.create({id: uuidv4(), username, email, password}, {transaction: t})
+            let resCreateUser = await users.create({id: uuidv4(), username, email, password: await hashPassword(password)}, {transaction: t})
 
             await users_address.create({receiver: 'fauzan', address: 'jl. abc', users_id: resCreateUser.dataValues.id}, {transaction: t})
 
