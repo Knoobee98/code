@@ -1,0 +1,302 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "username": "fdhuha",
+            "password": "fdhuha1234567890",
+            "email": "fdhuha@gmail.com",
+            "role": "user"
+        }
+    ],
+
+    "hotels": [
+        {
+            "id": "1",
+            "name": "Hotel Santika Bandung",
+            "location": "Bandung",
+            "price": 500000,
+            "rooms": [
+                {
+                    "id": "1",
+                    "name": "superior",
+                    "type": "double",
+                    "price": 500000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "superior1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Superior-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "superior2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Superior-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "superior3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Superior-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "2",
+                    "name": "deluxe",
+                    "type": "double",
+                    "price": 600000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "deluxe1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Deluxe-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "deluxe2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Deluxe-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "deluxe3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Deluxe-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "3",
+                    "name": "suite",
+                    "type": "double",
+                    "price": 700000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "suite1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Suite-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "suite2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Suite-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "suite3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Bandung-Suite-Room-3.jpg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Hotel Santika Jakarta",
+            "location": "Jakarta",
+            "price": 500000,
+            "rooms": [
+                {
+                    "id": "4",
+                    "name": "superior",
+                    "type": "double",
+                    "price": 500000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "superior1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Superior-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "superior2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Superior-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "superior3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Superior-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "5",
+                    "name": "deluxe",
+                    "type": "double",
+                    "price": 680000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "deluxe1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Deluxe-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "deluxe2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Deluxe-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "deluxe3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Deluxe-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "6",
+                    "name": "suite",
+                    "type": "double",
+                    "price": 750000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "suite1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Suite-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "suite2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Suite-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "suite3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Jakarta-Suite-Room-3.jpg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "name": "Hotel Santika Surabaya",
+            "location": "Surabaya",
+            "price": 500000,
+            "rooms": [
+                {
+                    "id": "7",
+                    "name": "superior",
+                    "type": "double",
+                    "price": 500000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "superior1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Superior-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "superior2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Superior-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "superior3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Superior-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "8",
+                    "name": "deluxe",
+                    "type": "double",
+                    "price": 665000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "deluxe1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Deluxe-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "deluxe2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Deluxe-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "deluxe3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Deluxe-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "9",
+                    "name": "suite",
+                    "type": "double",
+                    "price": 800000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "suite1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Suite-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "suite2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Suite-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "suite3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-Santika-Surabaya-Suite-Room-3.jpg"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "name": "El Royale Bandung",
+            "location": "Bandung",
+            "price": 897750,
+            "rooms": [
+                {
+                    "id": "10",
+                    "name": "lembong deluxe",
+                    "type": "double",
+                    "price": 897750,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "lembong deluxe1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-El-Royale-Bandung-Lembong-Deluxe-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "lembong deluxe2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-El-Royale-Bandung-Lembong-Deluxe-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "lembong deluxe3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-El-Royale-Bandung-Lembong-Deluxe-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+                    "id": "11",
+                    "name": "lembong deluxe twin",
+                    "type": "twin",
+                    "price": 1000000,
+                    "images": [
+                        {
+                            "id": "1",
+                            "name": "lembong deluxe twin1",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-El-Royale-Bandung-Lembong-Deluxe-Twin-Room-1.jpg"
+                        },
+                        {
+                            "id": "2",
+                            "name": "lembong deluxe twin2",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-El-Royale-Bandung-Lembong-Deluxe-Twin-Room-2.jpg"
+                        },
+                        {
+                            "id": "3",
+                            "name": "lembong deluxe twin3",
+                            "url": "https://www.santika.com/wp-content/uploads/2018/03/Hotel-El-Royale-Bandung-Lembong-Deluxe-Twin-Room-3.jpg"
+                        }
+                    ]
+                },
+                {
+
+                }
+            ]
+        }
+    ]
+}
