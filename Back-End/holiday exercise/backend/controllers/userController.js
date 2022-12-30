@@ -21,14 +21,44 @@ module.exports = {
 
         try {
             // step 1: ambil data dari req.body
-            const { username, email, password } = req.body;
+            const { username, email, password, role } = req.body;
             //step 2: validasi data
-            if(!username.length || !email.length || !password.length)
+            if(!username.length || !email.length || !password.length || !role.length)
             return res.status(404).send({
                 isError: true,
-                message: 'username, email, password is required',
+                message: 'username, email, password, role is required',
                 data: null
             })
+
+            //email validation
+            let regexEmail = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/
+            if(!regexEmail.test(email)){
+                return res.status(404).send({
+                    isError: true,
+                    message: 'email must be valid',
+                    data: null
+                })
+            }
+
+            //password character length validation
+            if(password.length < 6 || password.length > 10){
+                return res.status(404).send({
+                    isError: true,
+                    message: 'password must be 6-10 characters',
+                    data: null
+                })
+            }
+            
+            //password character set validation
+            let regex = /^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$/
+            if(!regex.test(password)){
+                return res.status(404).send({
+                    isError: true,
+                    message: 'password must contain number and alphabet',
+                    data: null
+                })
+            }
+
             //step 3: check ke database apakah email sudah ada atau belum
             let checkUsername = await users.findOne({
                 where: {
@@ -46,7 +76,7 @@ module.exports = {
             })
             //step 4: simpan data ke database
             let newUser = await users.create({
-                id: uuidv4(), username, email, password
+                id: uuidv4(), username, email, password: await hashPassword(password), role
             }, {transaction: t})
             //step 5: kirim response ke client
             await t.commit();
@@ -89,7 +119,7 @@ module.exports = {
                 data: null
             })
             
-            let matchPassword = await matchPassword(password, checkUsername.dataValues.password)
+            let matchPassword = await hashMatch(password, checkUsername.dataValues.password)
 
             if(!matchPassword) return res.status(404).send({
                 isError: true,
@@ -98,12 +128,12 @@ module.exports = {
             })
 
             //generate token
-            const token = createToken({id: checkUsername.dataValues.id})
+            const token = generateToken({id: checkUsername.dataValues.id})
 
             res.status(201).send({
                 isError: false,
                 message: 'login successfull',
-                data: {token, username: checkUsername.dataValues.username}
+                data: {token}
             })
 
             
