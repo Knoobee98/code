@@ -36,10 +36,11 @@ let Menu = () => {
     // get data by servers
     let onGetData = async() => {
         try{
-            let response = await axios.get('http://localhost:5000/products?category=0');
+            let response = await axios.get('http://localhost:3002/products/get');
+            console.log(response.data.findMenu)
             let responseCategory = await axios.get('http://localhost:5000/category')
 
-            setData(response.data);
+            setData(response.data.findMenu);
             setCategory(responseCategory.data);
         } catch (error){
             console.log(error);
@@ -103,7 +104,12 @@ let Menu = () => {
                                 <div key={index} className='flex items-center mt-3'>
                                     <div>
                                         <Link to={`/product/${value.id}`}>
-                                        <img src={value.image} style={{ width:'100px', height:'100px' }} alt="product-pics" className='rounded-full' />
+                                            {
+                                                value.images !== null?
+                                                <img src={value.images.url} style={{ width:'100px', height:'100px' }} alt="product-pics" className='rounded-full' />
+                                                : null
+                                            }
+                                        
                                         </Link>
                                     </div>
                                     <div className='pl-3'>

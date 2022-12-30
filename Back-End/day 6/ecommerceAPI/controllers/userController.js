@@ -61,9 +61,9 @@ module.exports = {
                 data: null
             })
 
-            let matchPassword = await matchPassword(password, checkUser.dataValues.password)
+            let matchPassword = await hashMatch(password, checkUser.dataValues.password)
 
-            if(!matchPassword) return res.status(404).send({
+            if(matchPassword === false) return res.status(404).send({
                 isError: true,
                 message: 'password not match',
                 data: null
@@ -89,7 +89,14 @@ module.exports = {
 
     keepLogin: (req, res) => {
         try {
-            
+            console.log()
+
+            //get data users by id
+            res.status(201).send({
+                isError: false,
+                message: 'keep login success',
+                data: null
+            })
         } catch (error) {
             
         }

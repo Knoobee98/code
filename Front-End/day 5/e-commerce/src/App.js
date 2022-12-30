@@ -35,11 +35,12 @@ let App = () => {
 
     let checkIsLogin = async() => {
       try{
-        let getTokenid = localStorage.getItem('token');
-        if(getTokenid){
-          let response = await axios.get(`http://localhost:3002/users/get`)
+        let token = localStorage.getItem('token')
+        if(token){
+          let response = await axios.post(`http://localhost:3002/users/keep-login`, {token})
+          console.log(response)
+
           setUsername(response.data.data.username)
-          setRedirect(true);
         }
       } catch (error){
 
@@ -70,7 +71,7 @@ let App = () => {
           //link to homepage
         } else {
           console.log(response);
-          localStorage.setItem('token', `${response.data.data.id}`);;
+          localStorage.setItem('token', `${response.data.data.token}`);;
           setUsername(response.data.data.username);
           toast.success(response.data.message);
           setTimeout(() => {
@@ -79,6 +80,7 @@ let App = () => {
           // link to homepage
         }
       } catch (error) {
+        console.log(error)
         toast(error.response.data.message);
       }
     };

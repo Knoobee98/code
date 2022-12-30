@@ -11,11 +11,7 @@ module.exports = {
     getProduct: async(req, res) => {
         try {
             let findMenu = await products.findAll({ attributes: ['name'], include: [{model: images, attributes: ['url']}]})
-            res.status(200).send({
-                isError: false,
-                message: 'get product success',
-                data: findMenu
-            })
+            res.status(200).send({findMenu})
         } catch (error) {
             res.status(400).send({
                 isError: true,
