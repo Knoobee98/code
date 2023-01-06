@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     BookedFrom: DataTypes.DATE,
     BookedTo: DataTypes.DATE
-  })
+  }, {})
 
   room.associate = function(models){
     room.belongsTo(models.hotel, {

@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     price: DataTypes.INTEGER,
     location: DataTypes.STRING
-  })
+  }, {})
 
   hotel.associate = function(models){
     hotel.hasMany(models.room, {

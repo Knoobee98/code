@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
 
   }, {})
 
+  users.associate = function(models){
+    users.hasMany(models.transactions, {
+      foreignKey: 'userId'
+    })
+  }
+
 
   return users;
 };

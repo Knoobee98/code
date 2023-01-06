@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     expired: DataTypes.DATE,
     status: DataTypes.STRING
-  })
+  }, {})
 
   transaction.associate = function(models){
     transaction.belongsTo(models.room, {
