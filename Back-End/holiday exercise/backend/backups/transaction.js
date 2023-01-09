@@ -10,6 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   transaction.associate = function(models){
     transaction.belongsTo(models.room, {
       foreignKey: 'roomId'
+    }),
+    transaction.belongsTo(models.users, {
+      foreignKey: 'users_id'
     })
   }
   

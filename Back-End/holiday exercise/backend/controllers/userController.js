@@ -83,7 +83,7 @@ module.exports = {
             res.status(201).send({
                 isError: false,
                 message: 'register successfull',
-                data: null
+                data: newUser
             })
         } catch (error){
             res.status(400).send({
@@ -97,29 +97,30 @@ module.exports = {
 
     login: async(req, res) => {
         try {
-            const { username, password } = req.body;
+            const { usernameOrEmail, password } = req.query;
 
             if(!username.length || !password.length){
                 return res.status(404).send({
                     isError: true,
-                    message: 'username and password is required',
+                    message: 'username/email and password is required',
                     data: null
                 })
             }
 
-            let checkUsername = await users.findOne({
-                where: {
-                    username
+            let findUsers = await users.findOne({
+                where: { 
+                    [Op.or]: [
+                    {
+                        email: usernameOrEmail
+                    },
+                    {
+                        username: usernameOrEmail
+                    }
+                ]
                 }
             })
-
-            if(!checkUsername) return res.status(404).send({
-                isError: true,
-                message: 'username or password is wrong',
-                data: null
-            })
             
-            let matchPassword = await hashMatch(password, checkUsername.dataValues.password)
+            let matchPassword = await hashMatch(password, findUsers.password)
 
             if(!matchPassword) return res.status(404).send({
                 isError: true,
@@ -128,7 +129,7 @@ module.exports = {
             })
 
             //generate token
-            const token = generateToken({id: checkUsername.dataValues.id})
+            const token = generateToken({id: findUsers.id})
 
             res.status(201).send({
                 isError: false,
