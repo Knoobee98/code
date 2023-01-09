@@ -3,15 +3,14 @@ module.exports = (sequelize, DataTypes) => {
   const transactions = sequelize.define('transactions', {
     hotel_name: DataTypes.STRING,
     hotel_location: DataTypes.STRING,
-    room_price: DataTypes.INTEGER,
     room_name: DataTypes.STRING,
     total_room: DataTypes.INTEGER,
     total_price: DataTypes.INTEGER,
-    checkIn: DataTypes.DATEONLY,
-    checkOut: DataTypes.DATEONLY,
-    expired_date: DataTypes.DATEONLY,
-    status: DataTypes.DATEONLY
-  }, {})
+    check_in: DataTypes.DATEONLY,
+    check_out: DataTypes.DATEONLY,
+    expired_date: DataTypes.DATE,
+    status: DataTypes.STRING
+  });
 
   transactions.associate = function(models){
     transactions.belongsTo(models.users, {
@@ -22,15 +21,6 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'hotels_rooms_id'
     })
   }
+  
   return transactions;
 };
-// hotel_name: DataTypes.STRING,
-//     hotel_location: DataTypes.STRING,
-//     room_price: DataTypes.INTEGER,
-//     room_name: DataTypes.STRING,
-//     total_room: DataTypes.INTEGER,
-//     total_price: DataTypes.INTEGER,
-//     checkIn: DataTypes.DATEONLY,
-//     checkOut: DataTypes.DATEONLY,
-//     expired_date: DataTypes.DATEONLY,
-//     status: DataTypes.DATEONLY

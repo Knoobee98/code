@@ -1,7 +1,7 @@
 
 module.exports = (sequelize, DataTypes) => {
   const hotels_images = sequelize.define('hotels_images', {
-    url: DataTypes.STRING,
+    url: DataTypes.STRING
   })
 
   hotels_images.associate = function(models){
@@ -11,3 +11,4 @@ module.exports = (sequelize, DataTypes) => {
   }
   return hotels_images;
 };
+// url: DataTypes.STRING

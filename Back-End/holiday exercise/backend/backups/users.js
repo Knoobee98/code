@@ -8,11 +8,31 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.UUID,
       defaultValue: UUIDV4
     },
-    username: DataTypes.STRING,
-    email: DataTypes.STRING,
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        unique: {
+          args: true,
+          msg: 'username already use!'
+        }
+      }
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: {msg: 'email already registered!'}
+      },
+      unique: {
+        args: true,
+        msg: 'email address already use!'
+      }
+    },
     password: DataTypes.STRING,
-    role: DataTypes.STRING
-  }, {});
+    role: DataTypes.STRING,
+
+  }, {})
 
   users.associate = function(models){
     users.belongsToMany(models.hotels_rooms, {
@@ -24,10 +44,7 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'users_id'
     })
   }
-  
+
+
   return users;
 };
-// username: DataTypes.STRING,
-//     email: DataTypes.STRING,
-//     password: DataTypes.STRING,
-//     role: DataTypes.STRING
