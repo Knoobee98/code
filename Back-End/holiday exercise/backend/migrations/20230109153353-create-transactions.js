@@ -36,13 +36,29 @@ module.exports = {
       status: {
         type: Sequelize.STRING
       },
+      hotels_rooms_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'hotels_rooms',
+          key: 'id'
+        }
+      },
+      users_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal("CURRENT_TIMESTAMP")
       }
     });
   },
