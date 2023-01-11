@@ -4,11 +4,10 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/navbar/navbar';
-import Explore from './components/explore/explore';
-import Home from './components/home/homepage';
-import Recommended from './components/recommended/recommended';
+import Home from './pages/Homepage/Homepage';
 import Search from './pages/SearchResult/SearchResult';
 import Details from './pages/HotelDetail/HotelDetail';
+import Footer from './components/footer/footer';
 
 
 let App = () => {
@@ -16,14 +15,12 @@ let App = () => {
   return(
     <>
       <Navbar />
-      <Home />
-      {/* search */}
-      <Explore />
-      <Recommended />
       <Routes>
+        <Route path="/" element={<Home />}/>
         <Route path="/search" element={<Search />}/>
         <Route path="/hotels" element={<Details />}/>
       </Routes>
+      <Footer />
     </>
     
   )
