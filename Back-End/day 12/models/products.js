@@ -5,6 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     stock: DataTypes.INTEGER
   })
+
+  products.associate = function(models){
+    products.hasMany(models.products_images, {
+      foreignKey: 'product_id',
+    })
+  }
   return products;
 };
 

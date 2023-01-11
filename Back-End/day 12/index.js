@@ -4,7 +4,7 @@ const port = 5050;
 
 app.use(express.json());
 
-const {productRouter} = require('./routers');
+const { productRouter } = require('./routers');
 app.use('/products', productRouter);
 
 

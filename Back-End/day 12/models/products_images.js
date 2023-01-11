@@ -4,7 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     path: DataTypes.STRING
   })
 
-  
+  products_images.associate = function(models){
+    products_images.belongsTo(models.products, {
+      foreignKey: 'product_id',
+    })
+  }
   return products_images;
 };
 // path: DataTypes.STRING
