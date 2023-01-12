@@ -10,6 +10,29 @@ const deleteFiles = require('./../helpers/deleteFiles')
 
 
 module.exports = {
+    getAllProducts: async(req,res) => {
+        try {
+            let findAllProducts = await products.findAll({
+                include: [
+                    {
+                        model: products_images,
+                        attribute: 'path'
+                    }
+                ]
+            })
+            res.status(201).send({
+                isError: false,
+                message: 'get all products success',
+                data: findAllProducts
+            })
+        } catch (error) {
+            res.status(404).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
+    },
     createProduct: async(req,res) => {
         const t = await sequelize.transaction()
         try {

@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import Cards from './components/cards/cards'
+
+let App = () => {
+  return(
+    <>
+    <div className='flex flex-col '>
+      <div className='flex flex-row border-b-2 border-black h-[80px] justify-between px-3 py-2 items-center mx-10'>
+        <div>
+          <h1 className='font-bold text-red-500'>Product Management</h1>
+        </div>
+        <div>
+          <button className='bg-green-500 border border-black rounded-md h-[50px] w-[150px]'>Add Products</button>
+        </div>
+      </div>
+      <div className='mx-10 my-5'>
+        <Cards />
+      </div>
     </div>
-  );
+    </>
+  )
 }
 
 export default App;
