@@ -12,7 +12,7 @@ export default function CreateModal(){
     const [message, setMessage] = useState('')
     const [selectedImages, setSelectedImages] = useState([])
 
-    let onImagesValidation (e) => {
+    let onImagesValidation = (e) => {
         try {
             let files = [...e.target.files]
 
@@ -42,7 +42,7 @@ export default function CreateModal(){
             let inputStock = stock.current.value
 
             let fd = new FormData()
-            
+
         } catch (error) {
             
         }
