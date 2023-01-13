@@ -36,16 +36,19 @@ module.exports = {
     createProduct: async(req,res) => {
         const t = await sequelize.transaction()
         try {
+            
             let dataToCreate = JSON.parse(req.body.data)
 
-            let postProducts = await products.create(dataToCreate, {transaction: t})
+            let postProducts = await products.create({...dataToCreate, main_image: req.files.images[0].path}, {transaction: t})
             let products_id = postProducts.dataValues.id
 
             let pathToCreate = []
             req.files.images.forEach(value => {
                 pathToCreate.push({path: value.path, products_id: products_id})
             })
+
             let createProductImages = await products_images.bulkCreate(pathToCreate, {transaction: t, ignoreDuplicates: true})
+            
             await t.commit()
             res.status(201).send({
                 isError: false,
@@ -108,8 +111,6 @@ module.exports = {
                 data: null
             })
         }
-        
-        
     },
     updateProduct: async(req, res) => {
         const t = await sequelize.transaction()
