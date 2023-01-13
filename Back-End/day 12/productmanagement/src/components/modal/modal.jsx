@@ -1,4 +1,4 @@
-import {useState, useRef, useEffect} from 'react'
+import {useState, useRef} from 'react'
 import {Modal, ModalBody} from 'reactstrap'
 import axios from 'axios'
 
@@ -42,9 +42,58 @@ export default function CreateModal(){
             let inputStock = stock.current.value
 
             let fd = new FormData()
+            fd.append('data', JSON.stringify({name: inputName, price: inputPrice, stock: inputStock}))
+            selectedImages.forEach(value => {
+                fd.append('images', value)
+            })
+
+            await axios.post('http://localhost:5050/products/create', fd)
+
+            alert('Successfully created product')
 
         } catch (error) {
-            
+            console.log(error)
         }
     }
+
+    return(
+        <>
+        <input type="button" value="insert Product" onClick={() => setModalOpen(true)} className="btn btn-primary rounded-0" />
+        <Modal isOpen={modalOpen} toggle={() => setModalOpen(false)}>
+            <ModalBody>
+                <div className="text-center px-3 py-3">
+                    <h3>Insert Product</h3>
+                </div>
+                <div className="px-3 py-3">
+                    <h6>Product Name :</h6>
+                    <input type="text" ref={name} className="form-control" />
+                </div>
+                <div className="px-3 py-3">
+                    <h6>Price :</h6>
+                    <input type="text" ref={price} className="form-control" />
+                </div>
+                <div className="px-3 py-3">
+                    <h6>Stock :</h6>
+                    <input type="text" ref={stock} className="form-control" />
+                </div>
+                <div className="px-3 pt-3">
+                    <h6>Select Image :</h6>
+                </div>
+                <div className="row border mx-3 px-3 py-3 rounded">
+                    <div className="col-12">
+                        <div>
+                            <input type="file" accept="image/*" multiple onChange={(e) => onImagesValidation(e)} />
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    {message}
+                </div>
+                <div className="my-3 px-3 py-3">
+                    <input type="button" onClick={onSubmit} value="submit data" className="btn btn-primary w-100"/>
+                </div>
+            </ModalBody>
+        </Modal>
+        </>
+    )
 }
