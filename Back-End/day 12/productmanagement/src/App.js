@@ -4,12 +4,21 @@ import {useState, useEffect} from 'react'
 
 import axios from 'axios'
 
+import CreateModal from './components/modal/modal'
+
 
 // import Cards from './components/cards/cards'
 
 let App = () => {
-  const [previewImage, setPreviewImage] = useState(null)
+    const [modalOpen, setModalOpen] = useState(false)
+    // const [data, setData] = useState(null)
+    // const [previewImage, setPreviewImage] = useState(null)
     const [dataProducts, setDataProducts] = useState([])
+    const[imagePreview, setImagePreview] = useState('')
+    const [selectedImage, setSelectedImage] = useState([])
+    const[idImageSelected, setIdImageSelected] = useState([])
+    const[onEdit, setOnEdit] = useState(null)
+
     let onGetData = async() => {
         try {
           let getData = await axios.get('http://localhost:5050/products/getall')
@@ -19,10 +28,53 @@ let App = () => {
         }
       }
     
-      let onClickImage = (index,path) => {
-        let temp = [...dataProducts]
-        temp[index].main_image = path
-        setPreviewImage(temp)
+      let onClickImage = (index,path, idImage) => {
+        let currentDataProducts = [...dataProducts]
+        let currentIdImageSelected = [...idImageSelected]
+        currentDataProducts[index].main_image = path
+        currentIdImageSelected[index] = idImage
+
+        setDataProducts(currentDataProducts)
+        setIdImageSelected(currentIdImageSelected)
+      }
+
+      let onUpdateImage = (e) => {
+        try {
+          if(e.target.files[0].type.split('/')[0] !== 'image') throw {message: 'File must be an image'}
+          if(e.target.files[0].size > 100000) throw {message: 'File is too large'}
+          if(e.target.files.length > 1) throw {message: 'one image only'}
+
+          let files = [...e.target.files]
+
+          let reader = new FileReader()
+          reader.readAsDataURL(files[0])
+          reader.onload = () => {
+            if(reader.readyState === 2) {
+              setImagePreview(reader.result)
+              setSelectedImage(files)
+            }
+          }
+
+        } catch (error) {
+          console.log(error.message)
+        }
+      }
+
+      let onSubmitImage = async() => {
+        try {
+          let fd = new FormData()
+          fd.append('images', selectedImage[0])
+          await axios.patch(`http://localhost:5050/products/update/${idImageSelected[onEdit]}`, fd)
+          alert('successfully updated')
+        } catch (error) {
+          
+        }
+        
+      }
+
+      let onClickEdit = (index) => {
+        setModalOpen(true)
+        setOnEdit(index)
       }
     
       useEffect(() => {
@@ -38,7 +90,7 @@ let App = () => {
           <h1 className='font-bold text-red-500'>Product Management</h1>
         </div>
         <div>
-          <button className='bg-green-500 border border-black rounded-md h-[50px] w-[150px]'>Add Products</button>
+          <CreateModal />
         </div>
       </div>
       {/* cards */}
