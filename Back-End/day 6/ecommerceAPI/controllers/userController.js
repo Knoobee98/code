@@ -24,6 +24,12 @@ const fs = require('fs').promises
 //import handlebars
 const handlebars = require('handlebars')
 
+//import reconn
+const client = require('./../connection/reconn')
+
+//import axios
+const axios = require('axios')
+
 
 module.exports = {
     getUser: async(req, res) => {
@@ -193,6 +199,34 @@ module.exports = {
                 isError: false,
                 message: 'activation success',
                 data: null
+            })
+
+        } catch (error) {
+            res.status(404).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
+    },
+
+    getWithRedis: async(req, res) => {
+        try {
+            let {breed} = req.params
+            
+            let {data} = await axios.get(`https://dog.ceo/api/breed/${breed}/images/random`)
+
+            //set ke redis
+            client.setex('dogs', 10000, JSON.stringify(data))
+
+            //get data redis
+            let getRedis = await client.get('dogs')
+            getRedis = JSON.parse(getRedis)
+
+            if(getRedist) return res.status(201).send({
+                isError: false,
+                message: 'get dog success',
+                data: getRedis.message
             })
 
         } catch (error) {
