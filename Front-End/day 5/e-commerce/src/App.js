@@ -14,6 +14,7 @@ import Homepage from "./pages/home/homepage";
 import Menu from "./pages/menu/menu";
 import DetailProduct from "./pages/detail/detailProduct";
 import Cart from "./pages/carts/cart";
+import Confirmation from "./pages/confirmation/confirmation";
 
 import {
   GoogleAuthProvider, 
@@ -129,6 +130,7 @@ let App = () => {
           <Route path="/menu" element={<Menu />} />
           <Route exact path="/product/:id" element={<DetailProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/confirmation/:id" element={<Confirmation />} />
         </Routes>
       </>
     );

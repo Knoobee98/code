@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
 
   size.associate = function(models){
     size.belongsToMany(models.products_detail, {
-      through: 'products_size'
+      through: 'products_size',
+      onDelete: 'cascade',
     })
   }
   

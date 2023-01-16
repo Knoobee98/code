@@ -16,6 +16,13 @@ module.exports = {
           key: 'id'
         }
       },
+      // productsDetail_id: {
+      //   type: Sequelize.INTEGER,
+      //   references: {
+      //     model: 'productsDetails',
+      //     key: 'id'
+      //   }
+      // },
       size_id: {
         type: Sequelize.INTEGER,
         references: {

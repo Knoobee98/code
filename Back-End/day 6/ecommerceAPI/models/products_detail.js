@@ -7,14 +7,17 @@ module.exports = (sequelize, DataTypes) => {
   products_detail.associate = function(models){
     products_detail.belongsTo(models.products, {
       foreignKey: 'products_id',
+      onDelete: 'cascade',
     })
 
     products_detail.belongsToMany(models.size, {
-      through: 'products_size'
+      through: 'products_size',
+      onDelete: 'cascade',
     })
 
     products_detail.belongsToMany(models.topping, {
-      through: 'products_topping'
+      through: 'products_topping',
+      onDelete: 'cascade',
     })
 
   }

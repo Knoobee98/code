@@ -17,13 +17,11 @@ module.exports = {
         }
       },
       users_id: {
-        type: Sequelize.UUID,
         allowNull: false,
-        defaultValue: Sequelize.UUIDV4,
-        references: {
-          model: 'users',
-          key: 'id'
-        }
+        autoIncrement: false,
+        primaryKey: true,
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       createdAt: {
         allowNull: false,
