@@ -8,4 +8,6 @@ Router.get('/getTotalSurvived', passangersController.getTotalSurvived)
 Router.get('/getTotalSurvivedByGender', passangersController.getTotalSurvivedByGender)
 Router.get('/getTotalSurvivedByClass', passangersController.getTotalSurvivedByClass)
 
+Router.get('/test', passangersController.test)
+
 module.exports = Router
