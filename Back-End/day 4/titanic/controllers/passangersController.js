@@ -88,5 +88,22 @@ module.exports = {
                 data: null
             })
         }
+    },
+
+
+    test: async(req, res) => {
+        try {
+            res.status(201).send({
+                isError: false,
+                message: 'test success',
+                data: null
+            })
+        } catch (error) {
+            res.status(404).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
     }
 }

@@ -16,6 +16,21 @@ const { hashPassword, hashMatch } = require('./../lib/hashPassword')
 //import jwttoken
 const { createToken, validateToken } = require('./../lib/token')
 
+//import transporter
+const transporter = require('./../helpers/transport')
+
+const fs = require('fs').promises
+
+//import handlebars
+const handlebars = require('handlebars')
+
+//import reconn
+const client = require('./../connection/reconn')
+
+//import axios
+const axios = require('axios')
+
+
 module.exports = {
     getUser: async(req, res) => {
         try {
@@ -132,9 +147,24 @@ module.exports = {
                 })
             
             // step 4: simpan data ke database
-            let resCreateUser = await users.create({id: uuidv4(), username, email, password: await hashPassword(password)}, {transaction: t})
+            let resCreateUser = await users.create({id: uuidv4(), username, email, password: await hashPassword(password), status: 'unconfirmed'}, {transaction: t})
 
             await users_address.create({receiver: 'fauzan', address: 'jl. abc', users_id: resCreateUser.dataValues.id}, {transaction: t})
+
+            let randomcode = Math.floor(Math.random() * 19999)
+            console.log(randomcode)
+            
+            // step 4.1: kirim email
+            const template = await fs.readFile('./template/confirmation.html', 'utf-8')
+            const templateToCompile = await handlebars.compile(template)
+            const newTemplate = templateToCompile({username, code, url: `http://localhost:3000/confirmation/${resCreateUser.dataValues.id}`})
+
+            await transporter.sendMail({
+                from: 'starbucks',
+                to: email,
+                subject: 'Account Activation',
+                html: newTemplate
+            })
 
             // step 5: kirim response
             await t.commit()
@@ -144,7 +174,63 @@ module.exports = {
                 data: null
             })
         } catch (error) {
+            await t.rollback()
             res.status(400).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
+    },
+
+    activationUser: async(req, res) => {
+        try {
+            //ambil id dari req.params
+            let id = req.params.id
+
+            //update status unconfirm --> confirm
+            let updateStatus = await users.update({status: 'confirmed'}, {
+                where: {
+                    id
+                }
+            })
+            //response berhasil
+            res.status(202).send({
+                isError: false,
+                message: 'activation success',
+                data: null
+            })
+
+        } catch (error) {
+            res.status(404).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
+    },
+
+    getWithRedis: async(req, res) => {
+        try {
+            let {breed} = req.params
+            
+            let {data} = await axios.get(`https://dog.ceo/api/breed/${breed}/images/random`)
+
+            //set ke redis
+            client.setex('dogs', 10000, JSON.stringify(data))
+
+            //get data redis
+            let getRedis = await client.get('dogs')
+            getRedis = JSON.parse(getRedis)
+
+            if(getRedist) return res.status(201).send({
+                isError: false,
+                message: 'get dog success',
+                data: getRedis.message
+            })
+
+        } catch (error) {
+            res.status(404).send({
                 isError: true,
                 message: error.message,
                 data: null

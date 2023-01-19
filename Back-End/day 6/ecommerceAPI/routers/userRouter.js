@@ -9,5 +9,6 @@ Router.get('/get', userController.getUser)
 Router.post('/register', userController.registerUser)
 Router.post('/login', userController.loginUser)
 Router.get('/keep-login', tokenVerify ,userController.keepLogin)
+Router.get('/getredis', userController.getWithRedis)
 
 module.exports = Router
