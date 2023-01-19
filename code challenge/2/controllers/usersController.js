@@ -13,7 +13,7 @@ const users = db.users
 const { hashPassword, hashMatch } = require('./../lib/hashPassword')
 
 //import jwttoken
-const { createToken, validateToken } = require('./../lib/token')
+const { generateToken, verifyToken } = require('./../lib/token')
 
 module.exports = {
     register: async(req, res) => {
@@ -46,19 +46,75 @@ module.exports = {
                     id: uuidv4(),
                     username,
                     email,
-                    password: hashPassword(password),
+                    password: await hashPassword(password),
                     role
                 }, {transaction: t})
 
                 await t.commit();
 
-                res.status(2001).send({
+                res.status(201).send({
                     isError: false,
                     message: 'register success',
-                    data: createUser
+                    data: null
                 })
         } catch (error) {
-            res.status(404),send({
+            t.rollback();
+            res.status(404).send({
+                isError: true,
+                message: error.message,
+                data: null
+            })
+        }
+    },
+
+    login: async(req, res) => {
+        const {usernameEmail, password} = req.body;
+        const t = await sequelize.transaction();
+        try {
+            if(!usernameEmail.length || !password.length) return res.status(404).send({
+                isError: true,
+                message: 'all data must be filled',
+                data: null
+            })
+
+            // find username or email
+            let findUser = await users.findOne({
+                where: {
+                    [Op.or]: [
+                        {username: usernameEmail},
+                        {email: usernameEmail}
+                    ]
+                }
+            })
+
+            if(!findUser) return res.status(404).send({
+                isError: true,
+                message: 'username or email not found',
+                data: null
+            })
+
+            //compare and verify password
+            let checkPassword = await hashMatch(password, findUser.password)
+
+            if(!checkPassword) return res.status(404).send({
+                isError: true,
+                message: 'password not match',
+                data: null
+            })
+
+            //create token
+            const token = await generateToken({
+                id: findUser.id,
+            })
+
+            res.status(201).send({
+                isError: false,
+                message: 'login success',
+                data: null
+            })
+            
+        } catch (error) {
+            res.status(404).send({
                 isError: true,
                 message: error.message,
                 data: null

@@ -10,6 +10,11 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+// routers
+const { usersRouter, busRouter } = require('./routers')
+app.use('/users', usersRouter)
+app.use('/bus', busRouter)
+
 app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 })
