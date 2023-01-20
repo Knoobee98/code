@@ -4,7 +4,7 @@
 //      result = 'd'
 // Ex.  text = 'pizza'
 //      move = 3
-//      result = 'sldd'
+//      result = 'slccd'
 
 //2. remove duplicate numbers
 // Ex. arrNumbers = [3, 5, 3, 1, 2, 5]
@@ -17,7 +17,7 @@ function forwardAlphabet(text, move){
         let index = alphabet.indexOf(text[i]);
         let newIndex = index + move;
         if(newIndex > 25){
-            newIndex = newIndex - 26;
+            newIndex = newIndex - 25;
         }
         result += alphabet[newIndex];
     }
@@ -25,7 +25,7 @@ function forwardAlphabet(text, move){
 
 }
 
-forwardAlphabet('pizza', 3);
+forwardAlphabet('abcde', 3);
 
 function RemoveDuplicate(arrNumbers){
     let result = [];
@@ -37,4 +37,14 @@ function RemoveDuplicate(arrNumbers){
     console.log(result)
 }
 
-RemoveDuplicate([1,2,3,1,2,3,4,5]);
+RemoveDuplicate([3,5,3,1,2,5]);
+
+const remove = (arrNumbers) => {
+    let result = []
+    for(let i = 0; i < arrNumbers.length; i++){
+        !result.includes(arrNumbers[i])? result.push(arrNumbers[i]) : null
+    }
+    console.log(result)
+}
+
+remove([3,5,3,1,2,5]);
