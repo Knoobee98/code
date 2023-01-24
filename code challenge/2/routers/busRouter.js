@@ -3,7 +3,7 @@ const router = express.Router()
 
 const { busController } = require('../controllers')
 
-router.post('/search', busController.search)
+router.post('/search', busController.searchBy)
 router.get('/detail/:id', busController.detailBus)
 
 module.exports = router

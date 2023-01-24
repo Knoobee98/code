@@ -3,9 +3,9 @@ module.exports = (sequelize, DataTypes) => {
   const seats = sequelize.define('seats', {
     bookfrom: DataTypes.STRING,
     bookto: DataTypes.STRING,
+    total_seats: DataTypes.INTEGER,
+    class: DataTypes.STRING,
     price: DataTypes.INTEGER,
-    total_seat: DataTypes.INTEGER,
-    available_seat: DataTypes.INTEGER
   })
 
   seats.associate = function(models){

@@ -120,5 +120,15 @@ module.exports = {
                 data: null
             })
         }
+    },
+
+    keepLogin: (req, res) => {
+        res.status(201).send({
+            isError: false,
+            message: 'keep-login',
+            data: {
+                token: req.headers.auth
+            }
+        })
     }
 }
