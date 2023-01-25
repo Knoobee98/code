@@ -1,0 +1,44 @@
+{
+    "data": {
+        "football": {
+            "liga1": {
+                "season": {
+                    "year": "2022-2023",
+                    "total_teams": 18, 
+                    "standings": [
+                        {
+                            "team_id": 5,
+                            "teamName": "PSM Makasar",
+                            "tables": "played|19,win|10,draw|8,lose|1,goalscored|33,goalconceded|12,differentgoal|21,point|38",
+                            "last_match": "d,w,d,d,w"
+                        },
+                        {
+                            "team_id": 3,
+                            "teamName": "Madura United",
+                            "tables": "played|20,win|11,draw|3,lose|6,goalscored|26,goalconceded|18,differentgoal|8,point|36",
+                            "last_match": "l,l,w,d,w"
+                        },
+                        {
+                            "team_id": 1,
+                            "teamName": "Persib Bandung",
+                            "tables": "played|18,win|11,draw|3,lose|4,goalscored|31,goalconceded|26,differentgoal|5,point|36",
+                            "last_match": "w,w,d,w,w"
+                        },
+                        {
+                            "team_id": 2,
+                            "teamName": "Persija Jakarta",
+                            "tables": "played|19,win|10,draw|5,lose|4,goalscored|23,goalconceded|15,differentgoal|8,point|35",
+                            "last_match": "l,w,l,w,w"
+                        },
+                        {
+                            "team_id": 4,
+                            "teamName": "Bali United",
+                            "tables": "played|19,win|11,draw|1,lose|7,goalscored|40,goalconceded|26,differentgoal|14,point|34",
+                            "last_match": "d,l,w,l,l"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
