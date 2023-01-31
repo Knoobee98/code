@@ -23,6 +23,7 @@ export default function App(){
   useEffect(() => {
     getData()
   }, [])
+  
   return(
     <>
     <div className='flex flex-row justify-center mt-5 gap-2'>
