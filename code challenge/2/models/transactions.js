@@ -2,9 +2,13 @@
 module.exports = (sequelize, DataTypes) => {
   const transactions = sequelize.define('transactions', {
     travel_name: DataTypes.STRING,
+    schedule_date: DataTypes.DATEONLY,
+    total_prices: DataTypes.INTEGER,
     total_seat: DataTypes.INTEGER,
-    seat_number: DataTypes.STRING,
-    total_prices: DataTypes.INTEGER
+    status: {
+      type: DataTypes.STRING,
+      defaultValue: 'Waiting For Payment'
+    }
   })
 
   transactions.associate = function(models){
