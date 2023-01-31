@@ -1,4 +1,27 @@
-export default function Home() {
+import {useState, useEffect} from 'react'
+
+export default function Home(props) {
+    const [message, setMessage] = useState([])
+    const [usersOnline, setUsersOnline] = useState([])
+
+    props.io.socket.on('total-online', (total) => {
+        console.log(total)
+    })
+
+    props.io.socket.on('message-from-server', (messageServer) => {
+        let currentMessage = [...message]
+        currentMessage.push(messageServer)
+        setMessage(currentMessage)
+    })  
+
+    useEffect(() => {
+        props.io.socket.emit('join-room', (props.room.roomname))
+        props.io.socket.on('users-in-room-feedback', (usersInRoom) => {
+            let currentUsersOnline = [...usersOnline, ...usersInRoom]
+            setUsersOnline(currentUsersOnline)
+        })
+    }, [props.io.socket, props.room.roomname, usersOnline])
+
     return (
         <>
             {/* Body */}
@@ -14,18 +37,17 @@ export default function Home() {
 
                     {/* User */}
                     <div className="flex flex-col pt-5">
-                        <div className="flex items-center px-2 py-2 hover:bg-gray-100">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-full w-16 shadow-lg" alt="Avatar" />
-                            <p className="text-base font-semibold px-3 h-full ml-3">User 1</p>
-                        </div>
-                        <div className="flex items-center mt-3 px-2 py-2 hover:bg-gray-100">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-full w-16 shadow-lg" alt="Avatar" />
-                            <p className="text-base font-semibold px-3 h-full ml-3">User 2</p>
-                        </div>
-                        <div className="flex items-center mt-3 px-2 py-2 hover:bg-gray-100">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-full w-16 shadow-lg" alt="Avatar" />
-                            <p className="text-base font-semibold px-3 h-full ml-3">User 3</p>
-                        </div>
+                        {
+                            usersOnline.map((value, index) => {
+                                return(
+                                    <div className="flex items-center px-2 py-2 hover:bg-gray-100">
+                                        <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-full w-16 shadow-lg" alt="Avatar" />
+                                        <p key={index} className="text-base font-semibold px-3 h-full ml-3">{value.username}</p>
+                                    </div>
+                                )
+                            })
+                        }
+                        
                     </div>
                 </div>
 
@@ -39,7 +61,15 @@ export default function Home() {
 
                     {/* Chat */}
                     <div>
-
+                        {
+                            message.map((value, index) => {
+                                return(
+                                    <div>
+                                        <p>{value.message}</p>
+                                    </div>
+                                )
+                            })
+                        }
                     </div>
 
                     {/* Insert Chat */}
